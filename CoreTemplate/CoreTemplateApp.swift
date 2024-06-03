@@ -2,7 +2,7 @@
 //  CoreTemplateApp.swift
 //  CoreTemplate
 //
-//  Created by Kranti on 2024/4/29.
+//  Created by Janus on 2024/4/29.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct CoreTemplateApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
