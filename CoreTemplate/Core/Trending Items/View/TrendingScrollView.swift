@@ -24,8 +24,6 @@ struct TrendingScrollView: View {
                                 .frame(width: 173, height: 178)
                                 .cornerRadius(20)
                         }
-   //                     .padding(.leading, 25)
-                        .padding(.top, 30)
                 }
                 // MARK: ScrollViewText
                 HStack() {
@@ -38,7 +36,7 @@ struct TrendingScrollView: View {
                                 .font(.system(size: 16, weight: .medium))
                                 .foregroundStyle(.black)
                                 .frame(width: 173, height: 40)
-                                .padding(.top, 3)
+                            
                                 
                             
                                 Text(infos[index])
@@ -47,23 +45,21 @@ struct TrendingScrollView: View {
                                     .foregroundStyle(.secondary)
                                     .font(.system(size: 14, weight: .medium))
                                     .frame(width: 173, height: 36)
-                                    .padding(.top, -10)
+                    
  
                         }
                        
-  //                          .padding(.leading, 25)
-                            .padding(.top, 2)
+
+                        
                         
                     }
-  //                  .padding(.top, 2)
+
 
                 }
             }
-//                                        .padding(.leading, 25)
-//                                        .padding(.top, 30)
+
 
         }
- //       .padding(3)
         
     }
 }

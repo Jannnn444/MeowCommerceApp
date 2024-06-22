@@ -10,68 +10,68 @@ import SwiftUI
 struct MainView: View {
     
     @State var searchText = ""
+    private var sideSpace: CGFloat = 25
     
     var body: some View {
         
+        //MARK: App Wrapper
         VStack {
-            HStack {
-                Image("doggoIcon")
-                    .padding(.trailing, 20)
-                 ZStack{
-                     HStack {
-                         Image("Vector")
-                             .padding(.horizontal, 8)
-                         TextField("Search Product or Brand", text: $searchText)
-                     }
-                     .padding(18)
-                     .frame(width: .infinity, height: 52)
-                     .background(Color.LighttGray)
-                     .cornerRadius(10)
+            //MARK: Search & BAnner Wrapper
+            VStack {
+                
+                HStack {
                     
-                     .foregroundStyle(Color.DarkkGray)
-                     .font(.system(size: 14, weight: .medium))
-                     
-                    
-                }
-            }
-            .padding()
-            
-            BannerDesignView()
-            
-            List {
-                Section(header: Text("Trending Items"))  {
-                    TrendingScrollView()
-                        .listRowSeparator(.hidden)
-                        .padding(.top, -30)
-                        .padding(.bottom, -20)
-                }
-                Section(header: Text("Browse Pet Types")) {
-                    BrowswPetTypeCategory()
-                        .listRowSeparator(.hidden)
-                        .padding(.top, -10)
-                        .padding(.bottom, -20)
-                }
+                    //MARK: Search
+                    Image("doggoIcon")
+                       
+                     ZStack{
+                         HStack {
+                             Image("Vector")
+        //                      .padding(.horizontal, 8)
+                             TextField("Search Product or Brand", text: $searchText)
+                         }
+                       
+                         .frame(maxWidth: .infinity, maxHeight: 52)
+                         .background(Color.LighttGray)
+                         .cornerRadius(10)
+                        
+                         .foregroundStyle(Color.DarkkGray)
+                         .font(.system(size: 14, weight: .medium))
+
+                    }
                 
             }
-            .listStyle(.plain)
+                //MARK: Banner
+                BannerDesignView()
+                    .padding(.top, 20)
+                    .padding(.bottom, 20)
+                
+       
+            }
+            .padding(.trailing, sideSpace)
+           
             
-            .navigationTitle("Main View")
+            //MARK: List -- "Trending Items"
+
+            SectionTitle(title: "Trending Now").padding(.trailing, sideSpace)
+                    TrendingScrollView()
+                .padding(.bottom, 10)
+                    
             
-          
-           /* TODO:
-            
-            1. The trending Scroll View The secondary didnt aligned
-            2. The List Header didnt show the second section: Browse pet types
-            3. Add the button at the right side of list: See all
-            4. To let the button on the right & maintain the vertical list, need to usevstack first, then hstack.
-            5. Input Fonts (customized)
-                       
-            */
+            //MARK: List -- "Browse Pet Types"
+            SectionTitle(title: "Trending Now").padding(.trailing, sideSpace)
+                    BrowswPetTypeCategory()
+                
+           
+    
             
         }
         
-        Spacer()
+            .padding(.leading, sideSpace)
+     
+            Spacer()
     }
+       
     
 }
 
@@ -83,3 +83,13 @@ struct MainView: View {
 
 
 
+
+ /* TODO:
+  
+  1. The trending Scroll View The secondary didnt aligned
+  2. The List Header didnt show the second section: Browse pet types
+  3. Add the button at the right side of list: See all
+  4. To let the button on the right & maintain the vertical list, need to usevstack first, then hstack.
+  5. Input Fonts (customized)
+             
+  */

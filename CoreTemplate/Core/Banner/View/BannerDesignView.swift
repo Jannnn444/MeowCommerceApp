@@ -10,7 +10,7 @@ import SwiftUI
 struct BannerDesignView: View {
     
 
-// static let gradientStart = Color(red: 239.0 / 255, green: 120.0 / 255, blue: 221.0 / 255)
+// static let gradientStart = Color(red: 239.0 / 255, green: 120.0 / 255, blue: 221.0 / 255)                 
 // static let gradientEnd = Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255)
     static let gradientStart = Color(.customGreen)
     static let gradientEnd = Color(.tiffanyBlue)
@@ -27,9 +27,11 @@ struct BannerDesignView: View {
                     ))
                     .foregroundColor(.customGreen)
                     .cornerRadius(10)
-                    .frame(width: 350, height: 148)
-                Image("mainBanner")
-                    .padding(.leading, 20)
+                    .frame(maxWidth: .infinity, maxHeight: 125)
+                    Image("mainBanner")
+                        .resizable()
+                        .frame( height: 120)
+
                 VStack {
                     Text("Canagan Dental")
                         .padding(.leading, 140)
@@ -42,8 +44,7 @@ struct BannerDesignView: View {
                 }
             }
         }
-        .padding(.trailing, 40)
-        .padding(.leading, 50)
+
     }
 }
 
