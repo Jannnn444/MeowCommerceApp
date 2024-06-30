@@ -30,7 +30,14 @@ class NetworkManager {
     // MARK: - GET REQUEST HELPER
     func getRequest<T: Decodable>(url: String, completion: @escaping(Result<T, Error>) -> Void) {
         // convert url endpoint to URL object
-        guard let urlObject = URL(string: "http://\(apiDomain):3000\(url)") else { return }
+        
+        //      guard let urlObject = URL(string: "http://\(apiDomain):3000\(url)") else { return }
+        
+        guard let urlObject = URL(string: "https://jsonplaceholder.typicode.com\(url)") else {
+            
+            completion(.failure(NetworkError.urlError))
+            return
+        }
         
         
         // start data task for GET request with URL object
@@ -41,7 +48,10 @@ class NetworkManager {
                 return
             }
             // check for valid data
-            guard let data = data else { return }
+            guard let data = data else {
+                completion(.failure(NetworkError.unknownError))
+                return
+            }
             
             DispatchQueue.main.async {
                 do {
@@ -51,7 +61,7 @@ class NetworkManager {
                     // return data after asynchronous operation
                     completion(.success(data))
                 } catch {
-                    print("DEBUG: Error occued while decoding JSON data.")
+                    print("DEBUG: Error occured while decoding JSON data.")
                 }
             }
         }
@@ -61,20 +71,23 @@ class NetworkManager {
         
     }
     
- 
+    
     // MARK: - POST REQUEST HELPER
     func postRequest<T: Encodable, U: Decodable>(url: String, payload: T, completion: @escaping (Result<U, Error>) -> Void) {
         
+        // T is dynamic type, product type, title: string and price: float(decimal)
+        
+        
         // guard against any unaccepted url strings and create URL object
         guard let url = URL(string: "http://\(apiDomain):\(PORT)\(url)") else { return }
-
+        
         
         // create a URLRequest object
         var request = URLRequest(url: url)
         
         // set http method to POST
         request.httpMethod = "POST"
-            
+        
         // set Content-Type headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -83,7 +96,7 @@ class NetworkManager {
             let jsonData = try JSONEncoder().encode(payload)
             print("[postRequest helper] encoded jsonData: \(jsonData)")
             request.httpBody = jsonData // set body of request with json data
-        
+            
         } catch {
             print("DEBUG error when encoding: \(error)")
             completion(.failure(error))
@@ -147,7 +160,7 @@ class NetworkManager {
         
         // set http method to POST
         request.httpMethod = "DELETE"
-            
+        
         // set Content-Type headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -166,6 +179,6 @@ class NetworkManager {
         
         // initialize task
         task.resume()
-                
+        
     }
 }

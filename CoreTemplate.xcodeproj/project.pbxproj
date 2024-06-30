@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1E06ECCC2C274BDA00321284 /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E06ECCB2C274BDA00321284 /* SectionTitle.swift */; };
+		1E4442422C296574005C8DF5 /* brandon-grotesque-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E4442412C296574005C8DF5 /* brandon-grotesque-regular.ttf */; };
+		1E4442442C296A64005C8DF5 /* BrandonGrotesque-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E4442432C296A64005C8DF5 /* BrandonGrotesque-Medium.otf */; };
+		1E4442D82C30333E005C8DF5 /* TrendingViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4442D72C30333E005C8DF5 /* TrendingViewModels.swift */; };
+		1E4442F42C315393005C8DF5 /* MyPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4442F32C315393005C8DF5 /* MyPosts.swift */; };
+		1E4442F62C3155F6005C8DF5 /* JsonPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4442F52C3155F6005C8DF5 /* JsonPlaceholderView.swift */; };
+		1E4443022C31819F005C8DF5 /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443012C31819F005C8DF5 /* NavigationState.swift */; };
+		1E4443082C3188C6005C8DF5 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443072C3188C6005C8DF5 /* NavigationView.swift */; };
 		1ED827402BF0C7E50080593D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8273F2BF0C7E50080593D /* Color.swift */; };
 		1ED827442BF1A99C0080593D /* TrendingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED827432BF1A99C0080593D /* TrendingScrollView.swift */; };
 		1ED827462BF1AA790080593D /* BannerDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED827452BF1AA790080593D /* BannerDesignView.swift */; };
@@ -17,13 +24,19 @@
 		8FCCBA082BDFAE1E003BC1CD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCBA072BDFAE1E003BC1CD /* MainView.swift */; };
 		8FCCBA0A2BDFAE20003BC1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FCCBA092BDFAE20003BC1CD /* Assets.xcassets */; };
 		8FCCBA0D2BDFAE20003BC1CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FCCBA0C2BDFAE20003BC1CD /* Preview Assets.xcassets */; };
-		8FCCBA172BDFB0D2003BC1CD /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCBA162BDFB0D2003BC1CD /* DataViewModel.swift */; };
-		8FCCBA192BDFB1F6003BC1CD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCBA182BDFB1F6003BC1CD /* Post.swift */; };
 		8FCCBA1C2BDFB2C6003BC1CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCBA1B2BDFB2C6003BC1CD /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E06ECCB2C274BDA00321284 /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
+		1E4442012C2959DB005C8DF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1E4442412C296574005C8DF5 /* brandon-grotesque-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "brandon-grotesque-regular.ttf"; sourceTree = "<group>"; };
+		1E4442432C296A64005C8DF5 /* BrandonGrotesque-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonGrotesque-Medium.otf"; sourceTree = "<group>"; };
+		1E4442D72C30333E005C8DF5 /* TrendingViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModels.swift; sourceTree = "<group>"; };
+		1E4442F32C315393005C8DF5 /* MyPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPosts.swift; sourceTree = "<group>"; };
+		1E4442F52C3155F6005C8DF5 /* JsonPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPlaceholderView.swift; sourceTree = "<group>"; };
+		1E4443012C31819F005C8DF5 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
+		1E4443072C3188C6005C8DF5 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		1ED8273F2BF0C7E50080593D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1ED827432BF1A99C0080593D /* TrendingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingScrollView.swift; sourceTree = "<group>"; };
 		1ED827452BF1AA790080593D /* BannerDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerDesignView.swift; sourceTree = "<group>"; };
@@ -34,8 +47,6 @@
 		8FCCBA072BDFAE1E003BC1CD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8FCCBA092BDFAE20003BC1CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FCCBA0C2BDFAE20003BC1CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8FCCBA162BDFB0D2003BC1CD /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
-		8FCCBA182BDFB1F6003BC1CD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8FCCBA1B2BDFB2C6003BC1CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,10 +64,11 @@
 		1E06ECC02C2732C800321284 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1E06ECCA2C274BC100321284 /* Title */,
-				1E06ECC32C27330E00321284 /* PetTypes */,
-				1E06ECC22C2732E900321284 /* Trending Items */,
 				1E06ECC12C2732D000321284 /* Banner */,
+				1E06ECCA2C274BC100321284 /* Title */,
+				1E06ECC22C2732E900321284 /* Trending Items */,
+				1E06ECC32C27330E00321284 /* PetTypes */,
+				1E4443032C31883F005C8DF5 /* Navigation */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -73,6 +85,7 @@
 		1E06ECC22C2732E900321284 /* Trending Items */ = {
 			isa = PBXGroup;
 			children = (
+				1E4443052C318896005C8DF5 /* Model */,
 				1E06ECC42C27332200321284 /* ViewModels */,
 				1E06ECC52C27332B00321284 /* View */,
 			);
@@ -91,6 +104,7 @@
 		1E06ECC42C27332200321284 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1E4442D72C30333E005C8DF5 /* TrendingViewModels.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -99,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				1ED827432BF1A99C0080593D /* TrendingScrollView.swift */,
+				1E4442F52C3155F6005C8DF5 /* JsonPlaceholderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,9 +164,52 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		1E06ECD82C29593700321284 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1E4442412C296574005C8DF5 /* brandon-grotesque-regular.ttf */,
+				1E4442432C296A64005C8DF5 /* BrandonGrotesque-Medium.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1E4443032C31883F005C8DF5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1E4443062C3188A8005C8DF5 /* Model */,
+				1E4443042C318875005C8DF5 /* View */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1E4443042C318875005C8DF5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E4443072C3188C6005C8DF5 /* NavigationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E4443052C318896005C8DF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E4442F32C315393005C8DF5 /* MyPosts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E4443062C3188A8005C8DF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E4443012C31819F005C8DF5 /* NavigationState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8FCCB9F92BDFAE1E003BC1CD = {
 			isa = PBXGroup;
 			children = (
+				1E06ECD82C29593700321284 /* Fonts */,
 				8FCCBA042BDFAE1E003BC1CD /* CoreTemplate */,
 				8FCCBA032BDFAE1E003BC1CD /* Products */,
 			);
@@ -168,10 +226,9 @@
 		8FCCBA042BDFAE1E003BC1CD /* CoreTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				1E4442012C2959DB005C8DF5 /* Info.plist */,
 				1E06ECC02C2732C800321284 /* Core */,
 				8FCCBA1A2BDFB2B1003BC1CD /* Networking */,
-				8FCCBA152BDFAE78003BC1CD /* Models */,
-				8FCCBA142BDFAE71003BC1CD /* ViewModels */,
 				8FCCBA052BDFAE1E003BC1CD /* CoreTemplateApp.swift */,
 				8FCCBA072BDFAE1E003BC1CD /* MainView.swift */,
 				8FCCBA092BDFAE20003BC1CD /* Assets.xcassets */,
@@ -188,22 +245,6 @@
 				8FCCBA0C2BDFAE20003BC1CD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		8FCCBA142BDFAE71003BC1CD /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8FCCBA162BDFB0D2003BC1CD /* DataViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		8FCCBA152BDFAE78003BC1CD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				8FCCBA182BDFB1F6003BC1CD /* Post.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		8FCCBA1A2BDFB2B1003BC1CD /* Networking */ = {
@@ -273,7 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FCCBA0D2BDFAE20003BC1CD /* Preview Assets.xcassets in Resources */,
+				1E4442422C296574005C8DF5 /* brandon-grotesque-regular.ttf in Resources */,
 				8FCCBA0A2BDFAE20003BC1CD /* Assets.xcassets in Resources */,
+				1E4442442C296A64005C8DF5 /* BrandonGrotesque-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,17 +327,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E4443082C3188C6005C8DF5 /* NavigationView.swift in Sources */,
 				1ED827462BF1AA790080593D /* BannerDesignView.swift in Sources */,
 				1ED827482BF1AB9E0080593D /* BrowswPetTypeCategory.swift in Sources */,
 				1E06ECCC2C274BDA00321284 /* SectionTitle.swift in Sources */,
 				8FCCBA082BDFAE1E003BC1CD /* MainView.swift in Sources */,
+				1E4442F42C315393005C8DF5 /* MyPosts.swift in Sources */,
+				1E4443022C31819F005C8DF5 /* NavigationState.swift in Sources */,
+				1E4442D82C30333E005C8DF5 /* TrendingViewModels.swift in Sources */,
 				1ED827442BF1A99C0080593D /* TrendingScrollView.swift in Sources */,
 				8FCCBA062BDFAE1E003BC1CD /* CoreTemplateApp.swift in Sources */,
 				1ED827402BF0C7E50080593D /* Color.swift in Sources */,
 				8FCCBA1C2BDFB2C6003BC1CD /* NetworkManager.swift in Sources */,
+				1E4442F62C3155F6005C8DF5 /* JsonPlaceholderView.swift in Sources */,
 				8F91A60E2BEFCF9F002EF264 /* config.swift in Sources */,
-				8FCCBA172BDFB0D2003BC1CD /* DataViewModel.swift in Sources */,
-				8FCCBA192BDFB1F6003BC1CD /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,11 +477,11 @@
 				DEVELOPMENT_TEAM = KYGTS4FW72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoreTemplate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,11 +506,11 @@
 				DEVELOPMENT_TEAM = KYGTS4FW72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoreTemplate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

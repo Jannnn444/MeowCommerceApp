@@ -20,18 +20,21 @@ struct SectionTitle: View {
         
         HStack {
             Text(title)
-                .font(.system(size: 24, weight: .medium))
+ //             .font(.custom("brandon-grotesque-regular", size: 18) )
+                .font(.custom("BrandonGrotesque-Medium", size: 18))
+       
             Spacer()
             
             Button(action: seeAll ) {
-                Text("see all")
-                    .font(.system(size: 16, weight: .medium))
+                Text("See all")
+//                  .font(.system(size: 16, weight: .medium))
+                    .font(.custom("BrandonGrotesque-Medium", size: 16))
                     .foregroundStyle(Color.carrot)
             }
         }
-       
     }
-    
-    
 }
+
+
+
 

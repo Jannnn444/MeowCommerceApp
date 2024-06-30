@@ -36,7 +36,7 @@ struct BrowswPetTypeCategory: View {
                                 .clipped()
                             
                             Text(pet[index])
-                                .font(.system(.body, design: .none, weight: .semibold))
+                                .font(.custom("BrandonGrotesque-Medium", size: 20))
                         }
                        
                         
