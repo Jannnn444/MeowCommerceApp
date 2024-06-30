@@ -4,6 +4,9 @@
 //
 //  Created by Hualiteq International on 2024/6/30.
 //
+
+import UIKit
+
 import SwiftUI
 
 struct JsonPlaceholderView: View {

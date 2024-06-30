@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NavigationState {
+enum NavState {
     case Shop
     case Explore
     case Favourite

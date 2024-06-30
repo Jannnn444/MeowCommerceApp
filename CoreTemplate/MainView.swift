@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var viewModel = TrendingViewModels()
-    @State var navigation: NavigationState = .Shop
+    @State var nav: NavState = .Shop
     
     @State var searchText = ""
     private var sideSpace: CGFloat = 25
@@ -68,23 +68,32 @@ struct MainView: View {
                     .padding(.trailing, sideSpace)
                 BrowswPetTypeCategory()
                 
-               JsonPlaceholderView()
+//               JsonPlaceholderView()
                 
-                switch navigation {
-                case .Shop:
-                    Text("Shop")
-                case .Explore:
-                    Text("Explore")
-                case .Favourite:
-                    Text("Favorite")
-                case .Account:
-                    Text("Explore")
-                }
+//                switch nav {
+//                case .Shop:
+//                    Text("Shop")
+//                case .Explore:
+//                    Text("Explore")
+//                case .Favourite:
+//                    Text("Favorite")
+//                case .Account:
+//                    Text("Explore")
+//                }
                 
             }
             
             .padding(.leading, sideSpace)
             Spacer()
+            
+            //MARK: Navigation Bar Menu
+            NavView(navigationState: $nav)
+//                .toolbarBackground(Color.cyan, for: .navigationBar)
+//                .toolbarBackground(.visible, for: .navigationBar)
+                .colorMultiply(.black)
+                .font(.title)
+                
+               
         }
     }
        
