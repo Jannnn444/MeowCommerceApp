@@ -73,7 +73,7 @@ struct TabShopView: View {
                 
             }
             
-//            .padding(.leading, sideSpace)
+            .padding(.leading, sideSpace)
             Spacer()
                
         }

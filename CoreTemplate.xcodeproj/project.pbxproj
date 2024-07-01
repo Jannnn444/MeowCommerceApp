@@ -245,14 +245,13 @@
 		8FCCBA042BDFAE1E003BC1CD /* CoreTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				1E4442012C2959DB005C8DF5 /* Info.plist */,
-				1E06ECC02C2732C800321284 /* Core */,
 				8FCCBA052BDFAE1E003BC1CD /* CoreTemplateApp.swift */,
 				8FCCBA072BDFAE1E003BC1CD /* MainView.swift */,
+				1ED8273F2BF0C7E50080593D /* Color.swift */,
+				1E4442012C2959DB005C8DF5 /* Info.plist */,
+				1E06ECC02C2732C800321284 /* Core */,
 				8FCCBA092BDFAE20003BC1CD /* Assets.xcassets */,
 				8FCCBA0B2BDFAE20003BC1CD /* Preview Content */,
-				8F91A60D2BEFCF9F002EF264 /* config.swift */,
-				1ED8273F2BF0C7E50080593D /* Color.swift */,
 			);
 			path = CoreTemplate;
 			sourceTree = "<group>";
@@ -268,6 +267,7 @@
 		8FCCBA1A2BDFB2B1003BC1CD /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				8F91A60D2BEFCF9F002EF264 /* config.swift */,
 				8FCCBA1B2BDFB2C6003BC1CD /* NetworkManager.swift */,
 			);
 			path = Networking;
