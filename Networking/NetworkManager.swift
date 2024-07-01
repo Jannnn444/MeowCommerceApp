@@ -30,14 +30,19 @@ class NetworkManager {
     // MARK: - GET REQUEST HELPER
     func getRequest<T: Decodable>(url: String, completion: @escaping(Result<T, Error>) -> Void) {
         // convert url endpoint to URL object
-        
-        //      guard let urlObject = URL(string: "http://\(apiDomain):3000\(url)") else { return }
-        
-        guard let urlObject = URL(string: "https://jsonplaceholder.typicode.com\(url)") else {
+
+        guard let urlObject = URL(string: "http://\(apiDomain):4040\(url)") else {
+ //    http://206.189.40.30:4040/api/products
             
-            completion(.failure(NetworkError.urlError))
             return
         }
+        
+        print("DECODE Url: \(urlObject)")
+        
+        //      guard let urlObject = URL(string: "https://jsonplaceholder.typicode.com\(url)") else {
+        //            completion(.failure(NetworkError.urlError))
+        //            return
+        //        }
         
         
         // start data task for GET request with URL object
@@ -54,9 +59,12 @@ class NetworkManager {
             }
             
             DispatchQueue.main.async {
+                print("DEBUG DATA 1: Before JsonDecoder \(data)")
                 do {
                     // attempt to decode the data
+                    print("DEBUG DATA : Before JsonDecoder \(data)")
                     let data = try JSONDecoder().decode(T.self, from: data)
+                    print("DEBUG DATA : After JsonDecoder \(data)")
                     
                     // return data after asynchronous operation
                     completion(.success(data))

@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct NavView: View {
+struct NavBarView: View {
     
     @Binding var navigationState: NavState
     
     var body: some View {
         
+        //MARK: 4 Tabs- Shop, Explore, Favorites, Account
         HStack {
             // MARK: Button - Shop
             

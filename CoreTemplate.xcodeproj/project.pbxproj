@@ -14,7 +14,13 @@
 		1E4442F42C315393005C8DF5 /* MyPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4442F32C315393005C8DF5 /* MyPosts.swift */; };
 		1E4442F62C3155F6005C8DF5 /* JsonPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4442F52C3155F6005C8DF5 /* JsonPlaceholderView.swift */; };
 		1E4443022C31819F005C8DF5 /* NavState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443012C31819F005C8DF5 /* NavState.swift */; };
-		1E4443082C3188C6005C8DF5 /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443072C3188C6005C8DF5 /* NavView.swift */; };
+		1E4443082C3188C6005C8DF5 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443072C3188C6005C8DF5 /* NavBarView.swift */; };
+		1E44430A2C319783005C8DF5 /* ProductsPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443092C319783005C8DF5 /* ProductsPost.swift */; };
+		1E44430C2C319A92005C8DF5 /* OceanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44430B2C319A92005C8DF5 /* OceanView.swift */; };
+		1E4443102C32A3FA005C8DF5 /* TabShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44430F2C32A3FA005C8DF5 /* TabShopView.swift */; };
+		1E4443122C32A403005C8DF5 /* TabExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443112C32A403005C8DF5 /* TabExploreView.swift */; };
+		1E4443142C32A40C005C8DF5 /* TabFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443132C32A40C005C8DF5 /* TabFavoriteView.swift */; };
+		1E4443162C32A427005C8DF5 /* TabAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4443152C32A427005C8DF5 /* TabAccountView.swift */; };
 		1ED827402BF0C7E50080593D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8273F2BF0C7E50080593D /* Color.swift */; };
 		1ED827442BF1A99C0080593D /* TrendingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED827432BF1A99C0080593D /* TrendingScrollView.swift */; };
 		1ED827462BF1AA790080593D /* BannerDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED827452BF1AA790080593D /* BannerDesignView.swift */; };
@@ -36,7 +42,13 @@
 		1E4442F32C315393005C8DF5 /* MyPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPosts.swift; sourceTree = "<group>"; };
 		1E4442F52C3155F6005C8DF5 /* JsonPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPlaceholderView.swift; sourceTree = "<group>"; };
 		1E4443012C31819F005C8DF5 /* NavState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavState.swift; sourceTree = "<group>"; };
-		1E4443072C3188C6005C8DF5 /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
+		1E4443072C3188C6005C8DF5 /* NavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
+		1E4443092C319783005C8DF5 /* ProductsPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPost.swift; sourceTree = "<group>"; };
+		1E44430B2C319A92005C8DF5 /* OceanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OceanView.swift; sourceTree = "<group>"; };
+		1E44430F2C32A3FA005C8DF5 /* TabShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabShopView.swift; sourceTree = "<group>"; };
+		1E4443112C32A403005C8DF5 /* TabExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabExploreView.swift; sourceTree = "<group>"; };
+		1E4443132C32A40C005C8DF5 /* TabFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFavoriteView.swift; sourceTree = "<group>"; };
+		1E4443152C32A427005C8DF5 /* TabAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAccountView.swift; sourceTree = "<group>"; };
 		1ED8273F2BF0C7E50080593D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1ED827432BF1A99C0080593D /* TrendingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingScrollView.swift; sourceTree = "<group>"; };
 		1ED827452BF1AA790080593D /* BannerDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerDesignView.swift; sourceTree = "<group>"; };
@@ -114,6 +126,7 @@
 			children = (
 				1ED827432BF1A99C0080593D /* TrendingScrollView.swift */,
 				1E4442F52C3155F6005C8DF5 /* JsonPlaceholderView.swift */,
+				1E44430B2C319A92005C8DF5 /* OceanView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,7 +198,11 @@
 		1E4443042C318875005C8DF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1E4443072C3188C6005C8DF5 /* NavView.swift */,
+				1E4443072C3188C6005C8DF5 /* NavBarView.swift */,
+				1E44430F2C32A3FA005C8DF5 /* TabShopView.swift */,
+				1E4443112C32A403005C8DF5 /* TabExploreView.swift */,
+				1E4443132C32A40C005C8DF5 /* TabFavoriteView.swift */,
+				1E4443152C32A427005C8DF5 /* TabAccountView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				1E4442F32C315393005C8DF5 /* MyPosts.swift */,
+				1E4443092C319783005C8DF5 /* ProductsPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				1E06ECD82C29593700321284 /* Fonts */,
+				8FCCBA1A2BDFB2B1003BC1CD /* Networking */,
 				8FCCBA042BDFAE1E003BC1CD /* CoreTemplate */,
 				8FCCBA032BDFAE1E003BC1CD /* Products */,
 			);
@@ -228,7 +247,6 @@
 			children = (
 				1E4442012C2959DB005C8DF5 /* Info.plist */,
 				1E06ECC02C2732C800321284 /* Core */,
-				8FCCBA1A2BDFB2B1003BC1CD /* Networking */,
 				8FCCBA052BDFAE1E003BC1CD /* CoreTemplateApp.swift */,
 				8FCCBA072BDFAE1E003BC1CD /* MainView.swift */,
 				8FCCBA092BDFAE20003BC1CD /* Assets.xcassets */,
@@ -327,19 +345,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4443082C3188C6005C8DF5 /* NavView.swift in Sources */,
+				1E4443102C32A3FA005C8DF5 /* TabShopView.swift in Sources */,
+				1E4443082C3188C6005C8DF5 /* NavBarView.swift in Sources */,
+				1E4443162C32A427005C8DF5 /* TabAccountView.swift in Sources */,
 				1ED827462BF1AA790080593D /* BannerDesignView.swift in Sources */,
 				1ED827482BF1AB9E0080593D /* BrowswPetTypeCategory.swift in Sources */,
 				1E06ECCC2C274BDA00321284 /* SectionTitle.swift in Sources */,
+				1E44430A2C319783005C8DF5 /* ProductsPost.swift in Sources */,
 				8FCCBA082BDFAE1E003BC1CD /* MainView.swift in Sources */,
 				1E4442F42C315393005C8DF5 /* MyPosts.swift in Sources */,
 				1E4443022C31819F005C8DF5 /* NavState.swift in Sources */,
 				1E4442D82C30333E005C8DF5 /* TrendingViewModels.swift in Sources */,
 				1ED827442BF1A99C0080593D /* TrendingScrollView.swift in Sources */,
 				8FCCBA062BDFAE1E003BC1CD /* CoreTemplateApp.swift in Sources */,
+				1E44430C2C319A92005C8DF5 /* OceanView.swift in Sources */,
 				1ED827402BF0C7E50080593D /* Color.swift in Sources */,
 				8FCCBA1C2BDFB2C6003BC1CD /* NetworkManager.swift in Sources */,
 				1E4442F62C3155F6005C8DF5 /* JsonPlaceholderView.swift in Sources */,
+				1E4443122C32A403005C8DF5 /* TabExploreView.swift in Sources */,
+				1E4443142C32A40C005C8DF5 /* TabFavoriteView.swift in Sources */,
 				8F91A60E2BEFCF9F002EF264 /* config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +502,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreTemplate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -507,6 +534,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreTemplate/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

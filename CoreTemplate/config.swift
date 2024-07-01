@@ -13,9 +13,13 @@ let mobileIP = "172.20.10.4"              //Kanti :"172.20.10.9"
 let homeWifiIP = "10.0.0.110"
 let officeIP = "10.1.6.21"
 
+// Digital Ocean Server
+let DigitalOceanServerIP = "206.189.40.30"
+
 // currently selected IP
-let apiDomain = mobileIP
+let apiDomain = DigitalOceanServerIP
 
 
 
 
+//http://206.189.40.30:4040/api/products
