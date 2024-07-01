@@ -26,24 +26,16 @@ class NetworkManager {
     // instantiate singleton instance
     static var shared = NetworkManager()
     
-    
     // MARK: - GET REQUEST HELPER
     func getRequest<T: Decodable>(url: String, completion: @escaping(Result<T, Error>) -> Void) {
         // convert url endpoint to URL object
 
         guard let urlObject = URL(string: "http://\(apiDomain):4040\(url)") else {
- //    http://206.189.40.30:4040/api/products
-            
+            completion(.failure(NetworkError.urlError))
             return
         }
-        
+        //    http://206.189.40.30:4040/api/products
         print("DECODE Url: \(urlObject)")
-        
-        //      guard let urlObject = URL(string: "https://jsonplaceholder.typicode.com\(url)") else {
-        //            completion(.failure(NetworkError.urlError))
-        //            return
-        //        }
-        
         
         // start data task for GET request with URL object
         let task = URLSession.shared.dataTask(with: urlObject) { data, response, error in
@@ -57,19 +49,24 @@ class NetworkManager {
                 completion(.failure(NetworkError.unknownError))
                 return
             }
+           
+        // MARK: NOTE: DispatchQueue why here 2, JsonData DEBUG Print
             
-            DispatchQueue.main.async {
-                print("DEBUG DATA 1: Before JsonDecoder \(data)")
-                do {
-                    // attempt to decode the data
-                    print("DEBUG DATA : Before JsonDecoder \(data)")
-                    let data = try JSONDecoder().decode(T.self, from: data)
-                    print("DEBUG DATA : After JsonDecoder \(data)")
-                    
+            do {
+                // attempt to decode the data
+                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                
+                print("decodedDataJsonData1 : \(decodedData)")
+                
+                DispatchQueue.main.async {
+                    print("decodedDataJsonData2 : \(decodedData)")
                     // return data after asynchronous operation
-                    completion(.success(data))
-                } catch {
-                    print("DEBUG: Error occured while decoding JSON data.")
+                    completion(.success(decodedData))
+                    print("decodedDataJsonData3 : \(decodedData)")
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(NetworkError.decodingError(error.localizedDescription)))
                 }
             }
         }
@@ -87,8 +84,10 @@ class NetworkManager {
         
         
         // guard against any unaccepted url strings and create URL object
-        guard let url = URL(string: "http://\(apiDomain):\(PORT)\(url)") else { return }
-        
+        guard let url = URL(string: "http://\(apiDomain):\(PORT)\(url)") else {
+            completion(.failure(NetworkError.urlError))
+            return
+        }
         
         // create a URLRequest object
         var request = URLRequest(url: url)
@@ -108,6 +107,7 @@ class NetworkManager {
         } catch {
             print("DEBUG error when encoding: \(error)")
             completion(.failure(error))
+            return
         }
         
         // make post request

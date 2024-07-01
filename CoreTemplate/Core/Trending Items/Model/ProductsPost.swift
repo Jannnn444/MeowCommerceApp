@@ -9,8 +9,8 @@ import Foundation
 
 struct ProductsPost: Codable, Hashable, Identifiable {
     let id: Int
-    let Title: String
-    let Subtitle: String
-    let ImageUrl: String
+    let title: String
+    let subtitle: String
+    let imageUrl: String
 }
 

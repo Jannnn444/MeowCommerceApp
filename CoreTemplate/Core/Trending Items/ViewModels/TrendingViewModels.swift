@@ -23,12 +23,13 @@ class TrendingViewModels: ObservableObject, Identifiable {
         NetworkManager.shared.getRequest(url: "/api/products") { (result: Result<[ProductsPost], Error>) in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let post):
-                    self.trendingOceanPosts = post
-                    print("DEBUG: Success. Received posts: \(post)")
+                case .success(let posts):
+                    self.trendingOceanPosts = posts
+                    print("DEBUG: Success. Received posts: \(posts)")
                 case .failure(let error):
                     self.errorMessages = error.localizedDescription
                     print("DEBUG: Error occurred: \(self.errorMessages ?? "Unknown error")")
+                    print("DEBUG: Detailed error: \(error)")
                 }
             }
         }
