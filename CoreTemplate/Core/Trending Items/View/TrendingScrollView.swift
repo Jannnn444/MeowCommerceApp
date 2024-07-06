@@ -22,40 +22,54 @@ struct TrendingScrollView: View {
         ScrollView(.horizontal) {
             VStack {
                 // MARK: ScrollViewPhoto
-                HStack {
-                        ForEach(1..<5) {
-                            Image("Rectangle\($0)")
-                                .resizable()
-                                .frame(width: 173, height: 178)
-                                .cornerRadius(20)
-                        }
-                }
                 // MARK: ScrollViewText
                 HStack() {
                     
-                    ForEach(0..<title.count, id: \.self) { index in
-                        VStack(alignment: .leading) {
-                            
-                            Text(title[index])
+                    ForEach(viewModel.trendingOceanPosts) { post in
+                        
+                            VStack(alignment: .leading) {
+                                ForEach(1..<5) {
+                                    Image("Rectangle\($0)")
+                                        .resizable()
+                                        .frame(width: 173, height: 178)
+                                        .cornerRadius(20)
+                                }
                                 
-                                .lineLimit(nil)
- //                               .font(.system(size: 16, weight: .medium))
-                                .font(.custom("BrandonGrotesque-Medium", size: 16))
-                                .foregroundStyle(.black)
-                                .frame(width: 173, height: 40)
-                            
-                                
-                            
-                                Text(infos[index])
+                                Text(post.title) .font(.custom("BrandonGrotesque-Medium", size: 16))
                                     .lineLimit(nil)
-                                    Spacer(minLength: 50)
-                                    .foregroundStyle(.secondary)
-//                                    .font(.system(size: 14, weight: .medium))
-                                    .font(.custom("BrandonGrotesque-Medium", size: 14))
-                                    .frame(width: 173, height: 36)
-                        }
-                    }                   
+                                    .frame(width: 150, height: 36)
+                                Text(post.subtitle).font(.custom("BrandonGrotesque-Medium", size: 14))
+                                    .lineLimit(nil)
+                                    .frame(width: 150, height: 36)
+                            }
+                        Spacer()
+                    }
+                    
+                    
+//                    ForEach(0..<title.count, id: \.self) { index in
+//                        VStack(alignment: .leading) {
+//                            
+//                            Text(title[index])
+//                                
+//                                .lineLimit(nil)
+// //                               .font(.system(size: 16, weight: .medium))
+//                                .font(.custom("BrandonGrotesque-Medium", size: 16))
+//                                .foregroundStyle(.black)
+//                                .frame(width: 173, height: 40)
+//                            
+//                                
+//                            
+//                                Text(infos[index])
+//                                    .lineLimit(nil)
+//                                    Spacer(minLength: 50)
+//                                    .foregroundStyle(.secondary)
+////                                    .font(.system(size: 14, weight: .medium))
+//                                    .font(.custom("BrandonGrotesque-Medium", size: 14))
+//                                    .frame(width: 173, height: 36)
+//                        }
+//                    }                   
                 }
+                
             }
 
 

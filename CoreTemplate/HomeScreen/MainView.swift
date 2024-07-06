@@ -17,9 +17,9 @@ struct MainView: View {
             VStack {
                 switch nav {
                 case .Shop:
-                    TabShopView()
+                    TheShopView()
                 case .Explore:
-                    TabExploreView()
+                    TheExploreView()
                 case .Favourite:
                     Text("Favorite")
                 case .Account:

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabShopView: View {
+struct TheShopView: View {
     
     @ObservedObject var viewModel = TrendingViewModels()
     @State var nav: NavState = .Shop
