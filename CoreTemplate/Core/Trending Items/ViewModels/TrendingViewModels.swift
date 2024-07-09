@@ -20,7 +20,7 @@ class TrendingViewModels: ObservableObject, Identifiable {
     func getTrendingPosts() {
         print("DEBUG: getTrendingPosts called.")
         
-        NetworkManager.shared.getRequest(url: "/api/products") { (result: Result<[ProductsPost], Error>) in
+        NetworkManager.shared.getRequest(url: "/api/product/trending") { (result: Result<[ProductsPost], Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let posts):
@@ -36,6 +36,7 @@ class TrendingViewModels: ObservableObject, Identifiable {
     }
 }
 
+// 206.189.40.30:4040/api/product
     
     
     //    @Published var trendingPosts: [MyPosts] = []

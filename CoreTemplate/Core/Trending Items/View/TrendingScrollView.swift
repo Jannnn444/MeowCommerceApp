@@ -24,16 +24,19 @@ struct TrendingScrollView: View {
                 // MARK: ScrollViewPhoto
                 // MARK: ScrollViewText
                 HStack() {
+                    ForEach(1..<5) {
+                        Image("Rectangle\($0)")
+                            .resizable()
+                            .frame(width: 173, height: 178)
+                            .cornerRadius(20)
+                    }
+                    Spacer()
                     
-                    ForEach(viewModel.trendingOceanPosts) { post in
-                        
+                    HStack{
+                        ForEach(viewModel.trendingOceanPosts) { post in
+                            
                             VStack(alignment: .leading) {
-                                ForEach(1..<5) {
-                                    Image("Rectangle\($0)")
-                                        .resizable()
-                                        .frame(width: 173, height: 178)
-                                        .cornerRadius(20)
-                                }
+                                
                                 
                                 Text(post.title) .font(.custom("BrandonGrotesque-Medium", size: 16))
                                     .lineLimit(nil)
@@ -42,9 +45,9 @@ struct TrendingScrollView: View {
                                     .lineLimit(nil)
                                     .frame(width: 150, height: 36)
                             }
-                        Spacer()
+                            Spacer()
+                        }
                     }
-                    
                     
 //                    ForEach(0..<title.count, id: \.self) { index in
 //                        VStack(alignment: .leading) {

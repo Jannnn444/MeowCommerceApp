@@ -34,7 +34,7 @@ class NetworkManager {
             completion(.failure(NetworkError.urlError))
             return
         }
-        //    http://206.189.40.30:4040/api/products
+        //    http://206.189.40.30:4040/api/product
         print("DECODE Url: \(urlObject)")
         
         // start data task for GET request with URL object
