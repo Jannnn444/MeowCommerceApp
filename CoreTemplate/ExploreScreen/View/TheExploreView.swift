@@ -9,7 +9,9 @@ import SwiftUI
 
 struct TheExploreView: View {
     
-    var title = "Symply Dog Adult Chicken \nwith Rice & Vegetables"
+    @ObservedObject var viewModel = ExploreViewModels()
+
+ //   var title = "Symply Dog Adult Chicken \nwith Rice & Vegetables"
     var subtitle = "395g"
     @State var count = 0
     
@@ -17,7 +19,7 @@ struct TheExploreView: View {
         VStack {
             VStack(alignment: .leading, spacing: 10) {
                 
-                HStack(alignment: .top) {
+                HStack() {
                     VStack(alignment: .leading) {
                         Image(systemName: "heart")
                             .resizable()
@@ -34,13 +36,22 @@ struct TheExploreView: View {
                 }
                 
                 HStack(alignment: .top) {
-                    Text("\(title)")
-                        .font(.headline)
-                        .multilineTextAlignment(.leading)
+//                    Text("\(title)")
+                    ForEach(viewModel.detailProductsPosts) { post in
+                        VStack(alignment: .leading) {
+                            Text(post.title).font(.custom("BrandonGrotesque-Medium", size: 14))
+                                .lineLimit(nil)
+                                .frame(width: 150, height: 36)
+                            Text(post.subtitle).font(.custom("BrandonGrotesque-Medium", size: 14))
+                                .lineLimit(nil)
+                                .frame(width: 150, height: 36)
+                        }
+                    }
+                   
                 }
-                Text("\(subtitle)")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+//                Text("\(subtitle)")
+//                    .font(.subheadline)
+//                    .foregroundColor(.gray)
                 HStack(spacing: 5) {
                     ForEach(0..<5) { _ in
                         Image(systemName: "star.fill")

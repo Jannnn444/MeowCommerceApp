@@ -24,12 +24,13 @@ struct TrendingScrollView: View {
                 // MARK: ScrollViewPhoto
                 // MARK: ScrollViewText
                 HStack() {
-                    ForEach(1..<5) {
-                        Image("Rectangle\($0)")
-                            .resizable()
-                            .frame(width: 173, height: 178)
-                            .cornerRadius(20)
-                    }
+                    
+//                    ForEach(1..<5) {
+//                        Image("Rectangle\($0)")
+//                            .resizable()
+//                            .frame(width: 173, height: 178)
+//                            .cornerRadius(20)
+//                    }
                     Spacer()
                     
                     HStack{

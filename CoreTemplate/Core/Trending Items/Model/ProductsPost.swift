@@ -12,5 +12,9 @@ struct ProductsPost: Codable, Hashable, Identifiable {
     let title: String
     let subtitle: String
     let imageUrl: String
+    let price: Int
+    let rating: Int
+    let weight: Int
+    let detail: String
 }
 
