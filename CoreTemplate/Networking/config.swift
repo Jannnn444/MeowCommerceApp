@@ -23,3 +23,4 @@ let apiDomain = DigitalOceanServerIP
 
 //http://206.189.40.30:4040/api/product
 //http://206.189.40.30:4040/api/product/1
+// 206.189.40.30

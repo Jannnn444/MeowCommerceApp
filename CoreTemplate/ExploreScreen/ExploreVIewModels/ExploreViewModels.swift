@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class ExploreViewModels: ObservableObject, Identifiable {
-    @Published var detailProductsPosts: [ProductsPost] = []
+    @Published var detailProductsPosts: [DetailPost] = []
     @Published var errorMessages: String? = nil
     
     init() {
@@ -19,7 +19,7 @@ class ExploreViewModels: ObservableObject, Identifiable {
     func getDetailPosts() {
         print("DEBUG: getTrendingPosts called.")
         
-        NetworkManager.shared.getRequest(url: "/api/product/1") { (result: Result<[ProductsPost], Error>) in
+        NetworkManager.shared.getRequest(url: "/api/product/1") { (result: Result<[DetailPost], Error>) in
             
             DispatchQueue.main.async {
                 switch result {
