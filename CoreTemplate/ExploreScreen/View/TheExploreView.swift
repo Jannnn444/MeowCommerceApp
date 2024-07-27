@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import Combine
 
 struct TheExploreView: View {
     
     @ObservedObject var viewModel = ExploreViewModels()
-
+    @State var count = 0
+    
  //   var title = "Symply Dog Adult Chicken \nwith Rice & Vegetables"
     var subtitle = "395g"
-    @State var count = 0
+
     
     var body: some View {
         VStack {
@@ -35,23 +37,44 @@ struct TheExploreView: View {
                     
                 }
                 
-                HStack(alignment: .top) {
-//                    Text("\(title)")
-                    ForEach(viewModel.detailProductsPosts) { post in
+                // this loop thru all the list
+                HStack() {
+                    VStack {
                         VStack(alignment: .leading) {
-                            Text(post.title).font(.custom("BrandonGrotesque-Medium", size: 14))
+                            Text(viewModel.detailProductsPosts?.title ?? "").font(.custom("BrandonGrotesque-Medium", size: 14))
                                 .lineLimit(nil)
                                 .frame(width: 150, height: 36)
-                            Text(post.subtitle).font(.custom("BrandonGrotesque-Medium", size: 14))
+                            Text(viewModel.detailProductsPosts?.subtitle ?? "").font(.custom("BrandonGrotesque-Medium", size: 14))
                                 .lineLimit(nil)
                                 .frame(width: 150, height: 36)
                         }
-                    }
-                   
+                    
                 }
-//                Text("\(subtitle)")
-//                    .font(.subheadline)
-//                    .foregroundColor(.gray)
+            }
+                                
+                // this loop thru the first item
+//                if let firstPost = viewModel.detailProductsPosts[0] {
+//                    HStack {
+//                        VStack(alignment: .leading) {
+//                            Text(firstPost.title)
+//                                .font(.custom("BrandonGrotesque-Medium", size: 24))
+//                                .lineLimit(nil)
+//                                .frame(width: 200, height: 36)
+////                            Text(firstPost.subtitle)
+////                                .font(.custom("BrandonGrotesque-Medium", size: 14))
+////                                .lineLimit(nil)
+////                                .frame(width: 200, height: 36)
+//                            
+//                        }
+//                    }
+//                } else {
+//                    Text("Loading...")
+//                }
+                
+                //                Text("\(subtitle)")
+                //                    .font(.subheadline)
+                //                    .foregroundColor(.gray)
+                
                 HStack(spacing: 5) {
                     ForEach(0..<5) { _ in
                         Image(systemName: "star.fill")
@@ -150,10 +173,10 @@ struct TheExploreView: View {
        
     }
 }
-
-#Preview {
-    TheExploreView()
-}
+//
+//#Preview {
+//    TheExploreView()
+//}
 //
 //#Preview {
 //    MainView()

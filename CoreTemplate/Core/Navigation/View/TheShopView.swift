@@ -80,11 +80,11 @@ struct TheShopView: View {
     }
 }
 
-//#Preview {
-//    TabShopView()
-//}
-
-
 #Preview {
-    MainView()
+    TheShopView()
 }
+
+//
+//#Preview {
+//    MainView()
+//}
