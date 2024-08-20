@@ -267,13 +267,6 @@
 			path = ExploreScreen;
 			sourceTree = "<group>";
 		};
-		1EB9A64C2C39520300A05858 /* FavoriteScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FavoriteScreen;
-			sourceTree = "<group>";
-		};
 		1EB9A64D2C39521D00A05858 /* AccountScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,11 +294,10 @@
 		8FCCBA042BDFAE1E003BC1CD /* CoreTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				1EB9A64A2C3950D000A05858 /* HomeScreen */,
 				1EB9A64D2C39521D00A05858 /* AccountScreen */,
-				1EB9A64C2C39520300A05858 /* FavoriteScreen */,
 				1EB9A64B2C3951E900A05858 /* ExploreScreen */,
 				8FCCBA1A2BDFB2B1003BC1CD /* Networking */,
-				1EB9A64A2C3950D000A05858 /* HomeScreen */,
 				1E06ECC02C2732C800321284 /* Core */,
 				8FCCBA092BDFAE20003BC1CD /* Assets.xcassets */,
 				1E4442012C2959DB005C8DF5 /* Info.plist */,

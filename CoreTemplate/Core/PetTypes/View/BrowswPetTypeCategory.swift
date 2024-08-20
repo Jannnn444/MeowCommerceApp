@@ -19,31 +19,26 @@ struct BrowswPetTypeCategory: View {
                
                 ForEach(0..<pet.count, id: \.self) { index in
                     
-                VStack {
-                    ZStack {
-
-                        Rectangle()
-                            .fill(bkgColor[index])
-                            .frame(width: 150, height: 81)
-                            .cornerRadius(20)
+                    VStack {
+                        ZStack {
                             
-                        HStack {
-                            Image("pet\(index)")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 76, height: 76)
-                                .padding(.top, 5)
-                                .clipped()
+                            Rectangle()
+                                .fill(bkgColor[index])
+                                .frame(width: 150, height: 81)
+                                .cornerRadius(20)
                             
-                            Text(pet[index])
-                                .font(.custom("BrandonGrotesque-Medium", size: 20))
+                            HStack {
+                                Image("pet\(index)")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 76, height: 76)
+                                    .padding(.top, 5)
+                                    .clipped()
+                                
+                                Text(pet[index])
+                                    .font(.custom("BrandonGrotesque-Medium", size: 20))
+                            }
                         }
-                       
-                        
-                       
-                        
-                    }
-                       
                     }
                 }
             }
