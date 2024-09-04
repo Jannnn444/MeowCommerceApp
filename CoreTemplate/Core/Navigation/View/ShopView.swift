@@ -10,9 +10,9 @@ import SwiftUI
 struct ShopView: View {
     
 
-    @EnvironmentObject var exploreViewDM: DetailViewModel
+//    @EnvironmentObject var exploreViewDM: DetailViewModel
+//    @ObservedObject var viewModel = ProductViewModel()
     
-    @ObservedObject var viewModel = ProductViewModel()
     @State var nav: NavState = .Shop
     @State var searchText = ""
     private var sideSpace: CGFloat = 25
@@ -57,7 +57,7 @@ struct ShopView: View {
                 
                 SectionTitle(title: "Trending now")
                     .font(.custom("BrandonGrotesque-Medium", size: 24))
-                   .padding(.trailing, sideSpace)
+                    .padding(.trailing, sideSpace)
                 ProductView()
                     .padding(.bottom, 10)
                 
@@ -66,7 +66,7 @@ struct ShopView: View {
                 //MARK: List -- "Browse Pet Types"
                 SectionTitle(title: "Browse pet types")
                     .font(.custom("BrandonGrotesque-Medium", size: 24))
-                  .padding(.trailing, sideSpace)
+                    .padding(.trailing, sideSpace)
                 PetTypeView()
                 
                 

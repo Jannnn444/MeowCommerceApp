@@ -20,6 +20,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>BrandonGrotesque-Medium.otf</string>
+		<string>brandon-grotesque-regular.otf</string>
 	</array>
 </dict>
 </plist>
