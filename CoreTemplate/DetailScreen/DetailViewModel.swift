@@ -5,21 +5,29 @@
 //  Created by Hualiteq International on 2024/7/14.
 //
 
-import Foundation
-import Combine
+import Foundation  
 
-class ExploreViewModels: ObservableObject, Identifiable {
-    @Published var detailProductsPosts: DetailPost? 
+class DetailViewModel: ObservableObject, Identifiable {
+    @Published var detailProductsPosts: DetailPost?
     @Published var errorMessages: String? = nil
+    @Published var number: Int = 1 {
+        didSet {
+            print("@Debug: Re-fetching posts...")
+            getDetailPosts()
+        }
+    }
+    @Published var pageName: String = ""
     
     init() {
         getDetailPosts()
         print("DEBUG: Init called. TrendingOceanPosts: \(detailProductsPosts), ErrorMessages: \(String(describing: errorMessages))")
     }
-    func getDetailPosts() {
+    
+    func getDetailPosts(number: Int = 1) {
         print("DEBUG: getTrendingPosts called.")
+        print("/api/product/\(number)")
         
-        NetworkManager.shared.getRequest(url: "/api/product/1") { (result: Result<DetailPost, Error>) in
+        NetworkManager.shared.getRequest(url: "/api/product/\(number)") { (result: Result<DetailPost, Error>) in
             
             DispatchQueue.main.async {
                 switch result {

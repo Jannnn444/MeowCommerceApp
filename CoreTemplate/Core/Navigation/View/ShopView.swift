@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-struct TheShopView: View {
+struct ShopView: View {
     
-    @ObservedObject var viewModel = TrendingViewModels()
+
+    @EnvironmentObject var exploreViewDM: DetailViewModel
+    
+    @ObservedObject var viewModel = ProductViewModel()
     @State var nav: NavState = .Shop
     @State var searchText = ""
     private var sideSpace: CGFloat = 25
@@ -43,7 +46,7 @@ struct TheShopView: View {
                         
                     }
                     //MARK: Banner
-                    BannerDesignView()
+                    BannerView()
                         .padding(.top, 20)
                         .padding(.bottom, 20)
                     
@@ -55,7 +58,7 @@ struct TheShopView: View {
                 SectionTitle(title: "Trending now")
                     .font(.custom("BrandonGrotesque-Medium", size: 24))
                    .padding(.trailing, sideSpace)
-                TrendingScrollView()
+                ProductView()
                     .padding(.bottom, 10)
                 
                 
@@ -64,7 +67,7 @@ struct TheShopView: View {
                 SectionTitle(title: "Browse pet types")
                     .font(.custom("BrandonGrotesque-Medium", size: 24))
                   .padding(.trailing, sideSpace)
-                BrowswPetTypeCategory()
+                PetTypeView()
                 
                 
                 //MARK: API For Display Trending List Data
@@ -81,7 +84,7 @@ struct TheShopView: View {
 }
 
 #Preview {
-    TheShopView()
+    ShopView()
 }
 
 //

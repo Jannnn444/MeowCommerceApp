@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BannerDesignView: View {
+struct BannerView: View {
     
 
 // static let gradientStart = Color(red: 239.0 / 255, green: 120.0 / 255, blue: 221.0 / 255)                 
@@ -49,5 +49,5 @@ struct BannerDesignView: View {
 }
 
 #Preview {
-    BannerDesignView()
+    BannerView()
 }

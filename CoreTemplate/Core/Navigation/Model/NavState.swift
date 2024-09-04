@@ -11,5 +11,6 @@ enum NavState {
     case Shop
     case Explore
     case Favourite
+//    case Cart
     case Account
 }

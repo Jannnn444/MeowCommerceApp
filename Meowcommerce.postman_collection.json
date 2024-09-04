@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "f66bcd9f-fb13-4f66-97e0-65bce1529eae",
+		"name": "Meowcommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5242230",
+		"_collection_link": "https://galactic-astronaut-1075.postman.co/workspace/My-Workspace~43a4e809-d1f6-4286-84e4-c9f308283efb/collection/5242230-f66bcd9f-fb13-4f66-97e0-65bce1529eae?action=share&source=collection_link&creator=5242230"
+	},
+	"item": [
+		{
+			"name": "Get Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"dog\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/product",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/product/3",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trending Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/product/trending",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"trending"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

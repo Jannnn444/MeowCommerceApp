@@ -9,29 +9,42 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State var nav: NavState = .Shop
+    @State private var navigationState: NavState = .Shop
     
     var body: some View {
-        
-        ScrollView {
-            VStack {
-                switch nav {
-                case .Shop:
-                    TheShopView()
-                case .Explore:
-                    TheExploreView()
-                case .Favourite:
-                    Text("Favorite")
-                case .Account:
-                    Text("Explore")
+        ZStack {
+            ScrollView {
+                HStack {
+                    
+                    switch navigationState {
+                    case .Shop:
+                        ShopView()
+                    case .Explore:
+                        ExploreView()
+                    case .Favourite:
+                        Text("Favorite")
+//                    case .Cart:
+//                        Text("Cart")
+                    case .Account:
+                        Text("Acocunt")
+                    }
                 }
+                .padding(.bottom, 10) //60
             }
-            
-            //MARK: Navigation Bar Menu
-            
-            NavBarView(navigationState: $nav)
-                .colorMultiply(.secondary)
-                .font(.title)
+            VStack {
+                
+                Spacer()
+                
+                HStack {
+                    //MARK: Navigation Bar
+                    NavBarView(navigationState: $navigationState)
+                        .colorMultiply(.secondary)
+                        .font(.title)
+//     .background(Color.white.shadow(radius: 2)) // Optional: Background and shadow for better visibility
+                    
+                }
+//                .padding(.horizontal)
+            }
         }
     }
 }

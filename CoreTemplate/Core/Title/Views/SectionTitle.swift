@@ -20,7 +20,6 @@ struct SectionTitle: View {
         
         HStack {
             Text(title)
- //             .font(.custom("brandon-grotesque-regular", size: 18) )
                 .font(.custom("BrandonGrotesque-Medium", size: 18))
        
             Spacer()

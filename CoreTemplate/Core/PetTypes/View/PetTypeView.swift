@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct BrowswPetTypeCategory: View {
+struct PetTypeView: View {
     
     @State var pet = ["Dog", "Cat", "Birdy"]
     @State var bkgColor = [Color("myorange"), Color("mygreen"), Color("mypurple") ]
-    // remember wrap the color type
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -42,12 +41,10 @@ struct BrowswPetTypeCategory: View {
                     }
                 }
             }
-    //        .padding()
-
         }
     }
 }
 
 #Preview {
-    BrowswPetTypeCategory()
+    PetTypeView()
 }
