@@ -240,13 +240,6 @@
 			path = ExploreScreen;
 			sourceTree = "<group>";
 		};
-		1EB9A64D2C39521D00A05858 /* AccountScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AccountScreen;
-			sourceTree = "<group>";
-		};
 		1EFE05EA2C87F3AC00C62F82 /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				1EB9A64A2C3950D000A05858 /* HomeScreen */,
-				1EB9A64D2C39521D00A05858 /* AccountScreen */,
 				1EB9A64B2C3951E900A05858 /* ExploreScreen */,
 				1EFE05EA2C87F3AC00C62F82 /* DetailScreen */,
 				8FCCBA1A2BDFB2B1003BC1CD /* Networking */,
