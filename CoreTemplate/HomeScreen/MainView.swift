@@ -40,10 +40,10 @@ struct MainView: View {
                     NavBarView(navigationState: $navigationState)
                         .colorMultiply(.secondary)
                         .font(.title)
-//     .background(Color.white.shadow(radius: 2)) // Optional: Background and shadow for better visibility
+                        .background(Color.white.shadow(radius: 2)) // Optional: Background and shadow for better visibility
                     
                 }
-//                .padding(.horizontal)
+              
             }
         }
     }
