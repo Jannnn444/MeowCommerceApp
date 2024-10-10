@@ -14,8 +14,8 @@ struct ExploreView: View {
     let columns = Array(repeating: GridItem( spacing: 0, alignment: .center), count: 2)
     
     var body: some View {
-        VStack{
-            Text("Hello, World!")
+        ZStack{
+            Text("Store Catalogs")
                 .padding()
                 .font(.title)
                 .foregroundStyle(Color.black)
@@ -29,8 +29,30 @@ struct ExploreView: View {
                         .cornerRadius(5)
                     
                 }.padding()
+                    .onTapGesture {
+                        print("This Rectangle got presses! U guys!")
+                        
+                    }
                
             }
+            
+            LazyVGrid(columns: columns, spacing: 10) {
+            
+                ForEach(0..<8, id: \.self) { index in
+                    Rectangle()
+                        .fill(Color.yellow)
+                        .frame(width: 120, height: 150)
+                        .cornerRadius(5)
+            
+                    
+                }.padding(.top, 30).padding(.bottom, 20)
+                    .onTapGesture {
+                        print("This Rectangle got presses! U guys!")
+                        
+                    }
+               
+            }
+            
         }
         .padding()
     }

@@ -82,4 +82,3 @@ struct NavBarView: View {
     }
 }
 
-// TODO: Changed into Looping
