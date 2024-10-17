@@ -14,47 +14,53 @@ struct ExploreView: View {
     let columns = Array(repeating: GridItem( spacing: 0, alignment: .center), count: 2)
     
     var body: some View {
-        ZStack{
-            Text("Store Catalogs")
-                .padding()
-                .font(.title)
-                .foregroundStyle(Color.black)
-            
-            LazyVGrid(columns: columns, spacing: 10) {
-            
-                ForEach(0..<8, id: \.self) { index in
-                    Rectangle()
-                        .fill(Color.cyan)
-                        .frame(width: 140, height: 170)
-                        .cornerRadius(5)
+            ZStack{
+                ScrollView {
+                Text("Store Catalogs")
+                    .padding()
+                    .font(.title)
+                    .foregroundStyle(Color.black)
+                
+    /*            // MARK: LazyGrid 1 - Blue
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(0..<8, id: \.self) { index in
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.cyan)
+                                .frame(width: 140, height: 170)
+                                .cornerRadius(5)
+                        }
+                    }.padding()
+                        .onTapGesture {
+                            print("This Rectangle got presses! U guys!")
+                        }
+                }
+                // MARK: LazyGrid 2 - yellow
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(0..<8, id: \.self) { index in
+                        Rectangle()
+                            .fill(Color.yellow)
+                            .frame(width: 120, height: 150)
+                            .cornerRadius(5)
+                    }.padding(.top, 30).padding(.bottom, 20)
+                        .onTapGesture {
+                            print("This Rectangle got presses! U guys!")
+                        }
+                }
+     */
                     
-                }.padding()
-                    .onTapGesture {
-                        print("This Rectangle got presses! U guys!")
-                        
-                    }
-               
+                // MARK: LazyGrid 3 - AsyncImage
+                LazyVGrid(columns: columns, spacing: 21) {
+                    ForEach(0..<12, id: \.self) { index in
+                        AsyncImage(url: URL(string: "https://picsum.photos/600"))
+                            .scaledToFit()
+                            .frame(width: 120, height: 150)
+                            .cornerRadius(5)
+                    }.padding(.bottom, 7) .padding()
+                }
             }
-            
-            LazyVGrid(columns: columns, spacing: 10) {
-            
-                ForEach(0..<8, id: \.self) { index in
-                    Rectangle()
-                        .fill(Color.yellow)
-                        .frame(width: 120, height: 150)
-                        .cornerRadius(5)
-            
-                    
-                }.padding(.top, 30).padding(.bottom, 20)
-                    .onTapGesture {
-                        print("This Rectangle got presses! U guys!")
-                        
-                    }
-               
-            }
-            
+            .padding()
         }
-        .padding()
     }
 }
 
