@@ -45,3 +45,7 @@ class DetailViewModel: ObservableObject, Identifiable {
         }
     }
 }
+
+
+
+

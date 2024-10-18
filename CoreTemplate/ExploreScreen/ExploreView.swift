@@ -20,44 +20,28 @@ struct ExploreView: View {
                     .padding()
                     .font(.title)
                     .foregroundStyle(Color.black)
-                
-    /*            // MARK: LazyGrid 1 - Blue
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(0..<8, id: \.self) { index in
-                        ZStack {
-                            Rectangle()
-                                .fill(Color.cyan)
-                                .frame(width: 140, height: 170)
-                                .cornerRadius(5)
+  
+                // MARK: LazyGrid 3 - AsyncImage
+                LazyVGrid(columns: columns, spacing: 5) {
+                    ForEach(0..<12, id: \.self) { index in
+                        Group{
+                            VStack {
+                                AsyncImage(url: URL(string: "https://picsum.photos/600"))
+                                    .scaledToFit()
+                                    .frame(width: 150, height: 160)
+                                    .cornerRadius(5)
+                                Text("Item name : ")
+                                    .font(.body)
+                                    .foregroundStyle(Color.black)
+                            }
                         }
                     }.padding()
-                        .onTapGesture {
-                            print("This Rectangle got presses! U guys!")
-                        }
+                 
                 }
-                // MARK: LazyGrid 2 - yellow
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(0..<8, id: \.self) { index in
-                        Rectangle()
-                            .fill(Color.yellow)
-                            .frame(width: 120, height: 150)
-                            .cornerRadius(5)
-                    }.padding(.top, 30).padding(.bottom, 20)
-                        .onTapGesture {
-                            print("This Rectangle got presses! U guys!")
-                        }
-                }
-     */
-                    
-                // MARK: LazyGrid 3 - AsyncImage
-                LazyVGrid(columns: columns, spacing: 21) {
-                    ForEach(0..<12, id: \.self) { index in
-                        AsyncImage(url: URL(string: "https://picsum.photos/600"))
-                            .scaledToFit()
-                            .frame(width: 120, height: 150)
-                            .cornerRadius(5)
-                    }.padding(.bottom, 7) .padding()
-                }
+                    Text("Happy doggo shop.co")
+                        .padding()
+                        .font(.body)
+                        .foregroundStyle(Color.black)
             }
             .padding()
         }
