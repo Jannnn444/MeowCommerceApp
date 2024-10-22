@@ -22,7 +22,7 @@ struct MainView: View {
                     case .Explore:
                         ExploreView()
                     case .Favourite:
-                        Text("Favorite")
+                        Text("Tell us ur favorite!")
                     case .Account:
                         Text("Acocunt")
                     }
