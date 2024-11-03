@@ -9,7 +9,7 @@
 let PORT = 8080
 
 // network ips for api development
-let mobileIP = "172.20.10.4"              //Kanti :"172.20.10.9"
+let mobileIP = "172.20.10.4"              //Kranti Phone :"172.20.10.9"
 let homeWifiIP = "10.0.0.110"
 let officeIP = "10.1.6.21"
 
@@ -18,8 +18,6 @@ let DigitalOceanServerIP = "206.189.40.30"
 
 // currently selected IP
 let apiDomain = DigitalOceanServerIP
-
-
 
 //http://206.189.40.30:4040/api/product
 //http://206.189.40.30:4040/api/product/1

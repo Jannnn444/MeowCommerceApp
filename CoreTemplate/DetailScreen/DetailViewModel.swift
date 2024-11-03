@@ -10,7 +10,7 @@ import Foundation
 class DetailViewModel: ObservableObject, Identifiable {
     @Published var detailProductsPosts: DetailPost?
     @Published var errorMessages: String? = nil
-    @Published var number: Int = 1 {
+    @Published var number: String = "1" {
         didSet {
             print("@Debug: Re-fetching posts...")
             getDetailPosts()
@@ -23,7 +23,7 @@ class DetailViewModel: ObservableObject, Identifiable {
         print("DEBUG: Init called. TrendingOceanPosts: \(detailProductsPosts), ErrorMessages: \(String(describing: errorMessages))")
     }
     
-    func getDetailPosts(number: Int = 1) {
+    func getDetailPosts(number: String = "") {
         print("DEBUG: getTrendingPosts called.")
         print("/api/product/\(number)")
         

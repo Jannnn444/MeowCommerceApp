@@ -8,9 +8,14 @@
 import Foundation
 
 struct ProductsPost: Codable, Hashable, Identifiable {
-    let id: Int
+    let id: String
     let title: String
     let subtitle: String
-    let imageUrl: String
+    let image_url: String
 }
 
+struct ProductResponse: Codable, Hashable {
+    let message: String
+    let statusCode: Int
+    let result: [ProductsPost]
+}

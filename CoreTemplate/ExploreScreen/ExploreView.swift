@@ -12,7 +12,6 @@ struct ExploreView: View {
     @State var nav: NavState = .Explore
     @ObservedObject var detailViewModel = DetailViewModel()
     
-    
     // 1. a) Define a new type that mirrors your data, expect change Ratings Int -> [Int]
     struct DetailProductRender: Identifiable, Hashable {
         let id = UUID()
@@ -20,7 +19,7 @@ struct ExploreView: View {
         let subtitle: String
         let imageUrl: String
         let price: Int
-        let rating: [Int]                                            // -> new type
+        let rating: [Int]               // -> new type
         let weight: Int
         let detail: String
     }
@@ -36,10 +35,7 @@ struct ExploreView: View {
                     .padding()
                     .font(.title)
                     .foregroundStyle(Color.black)
-                
-
-
-
+                                       
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(myDetailPostList, id: \.self) { product in
                         Group{
@@ -60,7 +56,6 @@ struct ExploreView: View {
                                     // stars ratings
                                     // 3. Add View
                                     RatingView(ratingArray: product.rating)
-                                    
                                 }
                             }.padding()
                         }
@@ -75,7 +70,6 @@ struct ExploreView: View {
         } 
         .onAppear {
             // 2. Convert data to include the ratings as an Array of Int
-            
             if let product = detailViewModel.detailProductsPosts {
                 let formattedProducts = DetailProductRender(
                     title: product.title,

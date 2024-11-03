@@ -16,7 +16,7 @@ struct ProductView: View {
     //    @State var title = ["Free puppy socilaisation in store", "Eco-friendly toys your dog will love", "Top sales in 2024 in discount", "DIY your doggo new gangster vest"]
     //    @State var infos = ["FREE", "Shop Green Elk", "Puppie Land", "Green Ville"]
     
-    @State var number: Int = 1
+    @State var number: String = ""
     @State var pageName: String = ""
     
     

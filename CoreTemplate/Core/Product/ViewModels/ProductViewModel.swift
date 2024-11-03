@@ -20,11 +20,11 @@ class ProductViewModel: ObservableObject, Identifiable {
     func getProductPosts() {
         print("DEBUG: getTrendingPosts called.")
         
-        NetworkManager.shared.getRequest(url: "/api/product" ) { (result: Result<[ProductsPost], Error>) in
+        NetworkManager.shared.getRequest(url: "/api/product" ) { (result: Result<ProductResponse, Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let posts):
-                    self.productPosts = posts
+                    self.productPosts = posts.result                    // fetch result from PriductResponse
                     print("DEBUG: Success. Received posts: \(posts)")
                 case .failure(let error):
                     self.errorMessages = error.localizedDescription

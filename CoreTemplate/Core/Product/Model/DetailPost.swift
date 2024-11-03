@@ -8,17 +8,23 @@
 import Foundation
 
 struct DetailPost: Codable, Hashable, Identifiable {
-    let id: Int
+    let id: String
     let title: String
     let subtitle: String
     let imageUrl: String
     let price: Int
-    let rating: Int
+    let rating: Int   //optional
     let weight: Int
-    let detail: String
+    let detail: String //optional
 }
 
-//206.189.40.30
+struct DetailResponse {
+    let message: String
+    let status: Int
+    let result: [DetailPost]
+}
 
+
+//206.189.40.30
 
 

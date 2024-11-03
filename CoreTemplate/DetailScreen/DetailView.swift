@@ -16,7 +16,7 @@ struct DetailView: View {
     @State var amountCounting = 0.00
     @State private var isExpandedforDetail: Bool = false
     @State private var isExpandedforComposition: Bool = false
-    @Binding var number: Int
+    @Binding var number: String
     @ObservedObject var detailViewModel = DetailViewModel()  //here subscribed the DetailViewModels()
     
     private var numberFormatter: NumberFormatter {
@@ -220,7 +220,7 @@ struct DetailView: View {
                 
                 // MARK: Composition Intro
                 DisclosureGroup(isExpanded: $isExpandedforComposition) {
-                    Text("This is our Top \(detailViewModel.detailProductsPosts?.id ?? 1) sellers! Totally \(detailViewModel.detailProductsPosts?.weight ?? 1)g. What a good deal! ")
+                    Text("This is our Top \(detailViewModel.detailProductsPosts?.id ?? "") sellers! Totally \(detailViewModel.detailProductsPosts?.weight ?? 1)g. What a good deal! ")
                         .font(.custom("BrandonGrotesque-Medium", size: 12))
                         .lineLimit(nil)
                         .frame(width: 260, height: 30, alignment: .leading)
@@ -259,7 +259,7 @@ struct DetailView: View {
 }
 //
 #Preview {
-    DetailView(number: .constant(1))
+    DetailView(number: .constant("0"))
 }
 
 //#Preview {
