@@ -13,15 +13,17 @@ struct ExploreView: View {
     @ObservedObject var detailViewModel = DetailViewModel()
     
     // 1. a) Define a new type that mirrors your data, expect change Ratings Int -> [Int]
-    struct DetailProductRender: Identifiable, Hashable {
-        let id = UUID()
+    struct DetailProductRender: Codable, Hashable, Identifiable {
+        
+        let id: String
         let title: String
         let subtitle: String
-        let imageUrl: String
+        let image_url: String
         let price: Int
-        let rating: [Int]               // -> new type
+        let rating: [Int]    // -> new type
         let weight: Int
-        let detail: String
+        let detail: String?
+        
     }
     // 1. b) Define the state that will held this new data type for UI to render
     @State var myDetailPostList: [DetailProductRender] = []
@@ -40,16 +42,16 @@ struct ExploreView: View {
                     ForEach(myDetailPostList, id: \.self) { product in
                         Group{
                             VStack {
-//                                AsyncImage(url: URL(string: "https://picsum.photos/600" ))
-//                                    .scaledToFit()
-//                                    .frame(width: 150, height: 160)
-//                                    .cornerRadius(5)
-                                Text("Item name : \(product.title)")
+                                AsyncImage(url: URL(string: "https://picsum.photos/600" ))
+                                    .scaledToFit()
+                                    .frame(width: 150, height: 160)
+                                    .cornerRadius(5)
+                                Text("Item name : ")
                                     .font(.body)
                                     .foregroundStyle(Color.black)
                                 
                                 HStack {
-                                    Text("Ratings: \(product.rating.count)")
+                                    Text("Ratings: ")
                                         .font(.subheadline)
                                         .foregroundStyle(Color.secondary)
                                   
@@ -72,15 +74,15 @@ struct ExploreView: View {
             // 2. Convert data to include the ratings as an Array of Int
             if let product = detailViewModel.detailProductsPosts {
                 let formattedProducts = DetailProductRender(
+                    id: product.id,
                     title: product.title,
                     subtitle: product.subtitle,
-                    imageUrl: product.imageUrl,
+                    image_url: product.image_url,
                     price: product.price,
-                    rating: Rating.checkStarsCloestFilter(num: Double(product.rating)),
+                    rating: Rating.checkStarsCloestFilter(num: Double(product.rating ?? 0)),
                     weight: product.weight,
-                    detail: product.detail
+                    detail: product.detail ?? ""
                 )
-                
                 self.myDetailPostList = [formattedProducts] // Wrap it in an array
             } else {
                 self.myDetailPostList = [] // Provide a fallback in case data is nil

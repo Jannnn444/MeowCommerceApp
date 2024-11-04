@@ -20,7 +20,7 @@ class ProductViewModel: ObservableObject, Identifiable {
     func getProductPosts() {
         print("DEBUG: getTrendingPosts called.")
         
-        NetworkManager.shared.getRequest(url: "/api/product" ) { (result: Result<ProductResponse, Error>) in
+        NetworkManager.shared.getRequest(url: "/api/product/trending" ) { (result: Result<ProductResponse, Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let posts):

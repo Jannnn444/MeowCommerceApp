@@ -27,13 +27,13 @@ class DetailViewModel: ObservableObject, Identifiable {
         print("DEBUG: getTrendingPosts called.")
         print("/api/product/\(number)")
         
-        NetworkManager.shared.getRequest(url: "/api/product/\(number)") { (result: Result<DetailPost, Error>) in
+        NetworkManager.shared.getRequest(url: "/api/product/\(number)") { (result: Result<DetailResponse, Error>) in
             
             DispatchQueue.main.async {
                 switch result {
                 case .success(let posts):
                 
-                    self.detailProductsPosts = posts
+                    self.detailProductsPosts = posts.result
                     print("DEBUG: Success. Received posts: \(posts)")
                 case .failure(let error):
                     self.errorMessages = error.localizedDescription

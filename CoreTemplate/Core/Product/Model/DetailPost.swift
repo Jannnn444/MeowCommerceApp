@@ -11,17 +11,17 @@ struct DetailPost: Codable, Hashable, Identifiable {
     let id: String
     let title: String
     let subtitle: String
-    let imageUrl: String
+    let image_url: String
     let price: Int
-    let rating: Int   //optional
+    let rating: Int?   //optional
     let weight: Int
-    let detail: String //optional
+    let detail: String? //optional
 }
 
-struct DetailResponse {
+struct DetailResponse: Codable, Hashable {
     let message: String
-    let status: Int
-    let result: [DetailPost]
+    let statusCode: Int
+    let result: DetailPost
 }
 
 
