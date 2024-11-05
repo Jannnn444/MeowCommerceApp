@@ -46,7 +46,7 @@ struct ExploreView: View {
                                     .scaledToFit()
                                     .frame(width: 150, height: 160)
                                     .cornerRadius(5)
-                                Text("Item name : ")
+                                Text("Item name: \(product.title)")
                                     .font(.body)
                                     .foregroundStyle(Color.black)
                                 
@@ -71,21 +71,27 @@ struct ExploreView: View {
             .padding()
         } 
         .onAppear {
+            // A. Fetch the posts
+                    detailViewModel.getDetailPosts()
+            
+            // B. Update myDetailPostList after posts are fetched
             // 2. Convert data to include the ratings as an Array of Int
-            if let product = detailViewModel.detailProductsPosts {
-                let formattedProducts = DetailProductRender(
-                    id: product.id,
-                    title: product.title,
-                    subtitle: product.subtitle,
-                    image_url: product.image_url,
-                    price: product.price,
-                    rating: Rating.checkStarsCloestFilter(num: Double(product.rating ?? 0)),
-                    weight: product.weight,
-                    detail: product.detail ?? ""
-                )
-                self.myDetailPostList = [formattedProducts] // Wrap it in an array
-            } else {
-                self.myDetailPostList = [] // Provide a fallback in case data is nil
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if let product = detailViewModel.detailProductsPosts {
+                    let formattedProducts = DetailProductRender(
+                        id: product.id,
+                        title: product.title,
+                        subtitle: product.subtitle,
+                        image_url: product.image_url,
+                        price: product.price,
+                        rating: Rating.checkStarsCloestFilter(num: Double(product.rating ?? 0)),
+                        weight: product.weight,
+                        detail: product.detail ?? ""
+                    )
+                    self.myDetailPostList = [formattedProducts] // Wrap it in an array
+                } else {
+                    self.myDetailPostList = [] // Provide a fallback in case data is nil
+                }
             }
         }
     }
