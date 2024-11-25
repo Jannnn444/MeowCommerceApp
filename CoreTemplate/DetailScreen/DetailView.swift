@@ -19,6 +19,22 @@ struct DetailView: View {
     @Binding var number: String
     @ObservedObject var detailViewModel = DetailViewModel()  //here subscribed the DetailViewModels()
     
+    // 1. a) Define a new type that mirrors your data, expect change Ratings Int -> [Int]
+    struct DetailProductRender: Codable, Hashable, Identifiable {
+        
+        let id: String
+        let title: String
+        let subtitle: String
+        let image_url: String
+        let price: Int
+        let rating: [Int]    // -> new type
+        let weight: Int
+        let detail: String?
+        
+    }
+    // 1. b) Define the state that will held this new data type for UI to render
+    @State var myDetailPostList: [DetailProductRender] = []
+    
     private var numberFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -31,7 +47,6 @@ struct DetailView: View {
         VStack {
             
             ScrollView {
-                
                 ZStack{
                     Text(detailViewModel.pageName)
                         .font(.title)
@@ -106,14 +121,18 @@ struct DetailView: View {
                     
                     HStack(spacing: 5) {
                         
+                        // MARK: STAR RATE
                         // Unwrap rating before using
-                        if let myRating = detailViewModel.detailProductsPosts?.rating {
+                        if let myRating = detailViewModel.detailProductsPosts?.rating  {
                             Text("\(myRating)")
                             
-                            ForEach(0..<myRating, id: \.self) { _ in
+                            ForEach(0..<Int(round(myRating)), id: \.self) { _ in
                                 Image(systemName: "star.fill")
                                     .foregroundColor(.carrot)
                             }
+                        } else {
+                            Text("No Rating")
+                                .foregroundColor(.gray)
                         }
                     }
                     HStack {
@@ -262,8 +281,3 @@ struct DetailView: View {
     DetailView(number: .constant("0"))
 }
 
-//#Preview {
-//    MainView()
-//}
-//
-//

@@ -6,7 +6,7 @@
 //
 
 // API PORT for Development
-let PORT = 8080
+let PORT = 4041
 
 // network ips for api development
 let mobileIP = "172.20.10.4"              //Kranti Phone :"172.20.10.9"
@@ -20,5 +20,6 @@ let DigitalOceanServerIP = "206.189.40.30"
 let apiDomain = DigitalOceanServerIP
 
 //http://206.189.40.30:4040/api/product
-//http://206.189.40.30:4040/api/product/1
+//http://206.189.40.30:4040/api/product/067af8ae-f233-4112-a05f-d8ef96061d98
 // 206.189.40.30
+//http://206.189.40.30:4041/api/product/?pageSize=9&pageNo=1

@@ -68,6 +68,8 @@ struct ProductView: View {
                         DetailView(number: $number)
 //                            .presentationDetents([.fraction(1.0)]) // Full screen presentation
 //                            .presentationDragIndicator(.hidden) // Optional: shows the drag indicator
+                        
+                        
                     })
                 }
             }

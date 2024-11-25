@@ -13,7 +13,7 @@ struct DetailPost: Codable, Hashable, Identifiable {
     let subtitle: String
     let image_url: String
     let price: Int
-    let rating: Int?   //optional
+    let rating: Double?   //optional
     let weight: Int
     let detail: String? //optional
 }

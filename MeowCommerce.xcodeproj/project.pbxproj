@@ -25,6 +25,8 @@
 		1ED827442BF1A99C0080593D /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED827432BF1A99C0080593D /* ProductView.swift */; };
 		1ED827462BF1AA790080593D /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED827452BF1AA790080593D /* BannerView.swift */; };
 		1ED827482BF1AB9E0080593D /* PetTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED827472BF1AB9E0080593D /* PetTypeView.swift */; };
+		1EEA06382CE64E8E002309B7 /* RateMeUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA06372CE64E8E002309B7 /* RateMeUpView.swift */; };
+		1EEA063D2CEDD1E8002309B7 /* ProductRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEA063C2CEDD1E8002309B7 /* ProductRender.swift */; };
 		1EF9CF512C85ADE80008243F /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9CF502C85ADE80008243F /* ExploreView.swift */; };
 		54AF9B1F2CC7436500135679 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AF9B1E2CC7436500135679 /* RatingView.swift */; };
 		54AF9B212CC74AE500135679 /* ProductWithRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AF9B202CC74AE500135679 /* ProductWithRating.swift */; };
@@ -57,6 +59,8 @@
 		1ED827432BF1A99C0080593D /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		1ED827452BF1AA790080593D /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		1ED827472BF1AB9E0080593D /* PetTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeView.swift; sourceTree = "<group>"; };
+		1EEA06372CE64E8E002309B7 /* RateMeUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateMeUpView.swift; sourceTree = "<group>"; };
+		1EEA063C2CEDD1E8002309B7 /* ProductRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRender.swift; sourceTree = "<group>"; };
 		1EF9CF502C85ADE80008243F /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		54AF9B1E2CC7436500135679 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		54AF9B202CC74AE500135679 /* ProductWithRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWithRating.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				1E4442F32C315393005C8DF5 /* MyPosts.swift */,
 				1E4443092C319783005C8DF5 /* ProductsPost.swift */,
 				1EC682B42C45564E005ECF79 /* DetailPost.swift */,
+				1EEA063C2CEDD1E8002309B7 /* ProductRender.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				1EF9CF502C85ADE80008243F /* ExploreView.swift */,
+				1EEA06372CE64E8E002309B7 /* RateMeUpView.swift */,
 			);
 			path = ExploreScreen;
 			sourceTree = "<group>";
@@ -352,7 +358,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8FCCB9FD2BDFAE1E003BC1CD /* Build configuration list for PBXProject "CoreTemplate" */;
+			buildConfigurationList = 8FCCB9FD2BDFAE1E003BC1CD /* Build configuration list for PBXProject "MeowCommerce" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -394,11 +400,13 @@
 				1E4443162C32A427005C8DF5 /* TheAccountView.swift in Sources */,
 				1ED827462BF1AA790080593D /* BannerView.swift in Sources */,
 				1ED827482BF1AB9E0080593D /* PetTypeView.swift in Sources */,
+				1EEA06382CE64E8E002309B7 /* RateMeUpView.swift in Sources */,
 				1E06ECCC2C274BDA00321284 /* SectionTitle.swift in Sources */,
 				54AF9B212CC74AE500135679 /* ProductWithRating.swift in Sources */,
 				1E44430A2C319783005C8DF5 /* ProductsPost.swift in Sources */,
 				1EF9CF512C85ADE80008243F /* ExploreView.swift in Sources */,
 				8FCCBA082BDFAE1E003BC1CD /* MainView.swift in Sources */,
+				1EEA063D2CEDD1E8002309B7 /* ProductRender.swift in Sources */,
 				1E5D740C2C440505008DED15 /* DetailViewModel.swift in Sources */,
 				1E4442F42C315393005C8DF5 /* MyPosts.swift in Sources */,
 				54AF9B1F2CC7436500135679 /* RatingView.swift in Sources */,
@@ -546,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreTemplate/Preview Content\"";
-				DEVELOPMENT_TEAM = KYGTS4FW72;
+				DEVELOPMENT_TEAM = 362GN5DA84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreTemplate/Info.plist;
@@ -578,7 +586,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreTemplate/Preview Content\"";
-				DEVELOPMENT_TEAM = KYGTS4FW72;
+				DEVELOPMENT_TEAM = 362GN5DA84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreTemplate/Info.plist;
@@ -605,7 +613,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8FCCB9FD2BDFAE1E003BC1CD /* Build configuration list for PBXProject "CoreTemplate" */ = {
+		8FCCB9FD2BDFAE1E003BC1CD /* Build configuration list for PBXProject "MeowCommerce" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FCCBA0E2BDFAE20003BC1CD /* Debug */,

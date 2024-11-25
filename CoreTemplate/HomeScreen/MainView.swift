@@ -10,6 +10,10 @@ import SwiftUI
 struct MainView: View {
     
     @State private var navigationState: NavState = .Shop
+    @State var number: String = ""
+    // any changes made to number within ExploreView will reflect back in MainView.
+    // @State and @Binding are correctly used to handle data flow between MainView and ExploreView.
+    // This setup allows ExploreView to modify number which then updates MainView dynamically.
     
     var body: some View {
         ZStack {
@@ -20,7 +24,7 @@ struct MainView: View {
                     case .Shop:
                         ShopView()
                     case .Explore:
-                        ExploreView()
+                        RateMeUpView()
                     case .Favourite:
                         Text("Tell us ur favorite!")
                     case .Account:

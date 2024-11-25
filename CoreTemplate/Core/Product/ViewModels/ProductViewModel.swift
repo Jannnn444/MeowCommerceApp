@@ -20,7 +20,7 @@ class ProductViewModel: ObservableObject, Identifiable {
     func getProductPosts() {
         print("DEBUG: getTrendingPosts called.")
         
-        NetworkManager.shared.getRequest(url: "/api/product/trending" ) { (result: Result<ProductResponse, Error>) in
+        NetworkManager.shared.getRequest(url: "/api/product/trending?pageSize=10&pageNo=1" ) { (result: Result<ProductResponse, Error>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let posts):
@@ -38,3 +38,6 @@ class ProductViewModel: ObservableObject, Identifiable {
 
 // 206.189.40.30:4040/api/product
     
+// DigitalOceanServerIP
+// http://206.189.40.30:4041/api/product?pageSize=9&pageNo=1
+// http://206.189.40.30:4041/api/product/trending?pageSize=2&pageNo=1

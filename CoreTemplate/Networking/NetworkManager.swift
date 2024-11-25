@@ -30,7 +30,7 @@ class NetworkManager {
     func getRequest<T: Decodable>(url: String, completion: @escaping(Result<T, Error>) -> Void) {
         // convert url endpoint to URL object
 
-        guard let urlObject = URL(string: "http://\(apiDomain):4040\(url)") else {
+        guard let urlObject = URL(string: "http://\(apiDomain):\(PORT)\(url)") else {
             completion(.failure(NetworkError.urlError))
             return
         }
