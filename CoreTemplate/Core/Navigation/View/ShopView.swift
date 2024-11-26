@@ -34,7 +34,7 @@ struct ShopView: View {
                                 Image("Vector")
                                 TextField("Search Product or Brand", text: $searchText)
                             }
-                            
+                            .padding()
                             .frame(maxWidth: .infinity, maxHeight: 52)
                             .background(Color.LighttGray)
                             .cornerRadius(10)

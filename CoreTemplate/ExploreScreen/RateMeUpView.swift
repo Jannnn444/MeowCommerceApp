@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RateMeUpView: View {
-    
+    // NOTE: Here only for static api testing!
     
     @StateObject var detailViewModel = DetailViewModel()
     var number: String = "5189a7b7-59d7-4b8f-a3e3-6870ba38baf3"

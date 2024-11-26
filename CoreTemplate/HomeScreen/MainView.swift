@@ -24,9 +24,9 @@ struct MainView: View {
                     case .Shop:
                         ShopView()
                     case .Explore:
-                        RateMeUpView()
+                        ExploreCategoriesView()
                     case .Favourite:
-                        Text("Tell us ur favorite!")
+                        Text("Add favorite list!")
                     case .Account:
                         Text("Acocunt")
                     }
