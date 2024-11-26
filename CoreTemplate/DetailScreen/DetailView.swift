@@ -80,13 +80,13 @@ struct DetailView: View {
                             Text(detailViewModel.detailProduct?.title ?? "")
                                 .font(.custom("BrandonGrotesque-Medium", size: 24))
                                 .lineLimit(nil)
-                                .frame(width: 250, height: 36, alignment: .leading)
+                                .frame(width: 250, height: 40, alignment: .leading)
                             
                             // MARK: Product Subtitle
                             Text(detailViewModel.detailProduct?.subtitle ?? "")
                                 .font(.custom("BrandonGrotesque-Medium", size: 20))
                                 .lineLimit(nil)
-                                .frame(width: 250, height: 36, alignment: .leading)
+                                .frame(width: 250, height: 40, alignment: .leading)
                             
                             // MARK: Weight
                             Text("\(detailViewModel.detailProduct?.weight ?? 100)g")
@@ -94,15 +94,24 @@ struct DetailView: View {
                                 .foregroundStyle(Color.secondary)
                                 .frame(width: 50, height: 10, alignment: .leading)
                            
+                            // MARK: Star Rating
                             HStack{
-                                ForEach(detailViewModel.detailProductsPosts?.rating ?? [] , id: \.self) { star in
-                                    if (star == 0) {
-                                        Image(systemName: "star.fill")
-                                            .foregroundColor(.yellow)
-                                    } else if star == 1 {
-                                        Image(systemName: "star.lefthalf.fill")
-                                            .foregroundColor(.yellow)
+                                if let ratios = detailViewModel.detailProductsPosts?.rating, !ratios.isEmpty {
+                                    ForEach(detailViewModel.detailProductsPosts?.rating ?? [] , id: \.self) { star in
+                                        if (star == 0) {
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.yellow)
+                                        } else if star == 1 {
+                                            Image(systemName: "star.lefthalf.fill")
+                                                .foregroundColor(.yellow)
+                                        }
                                     }
+                                } else {
+                                    // where we handle the case there're no ratings
+                                    Text("No rating yet, please leave your review!")
+                                               .foregroundStyle(.secondary)
+                                               .font(.footnote)
+                                               .frame(width: 250, height: 40, alignment: .leading)
                                 }
                             }
                             Spacer()

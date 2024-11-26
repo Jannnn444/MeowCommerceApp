@@ -11,10 +11,10 @@ class DetailViewModel: ObservableObject, Identifiable {
     @Published var detailProductsPosts: ProductRender?
     @Published var detailProduct: DetailPost?
     @Published var errorMessages: String? = nil
-    @Published var number: String = "5189a7b7-59d7-4b8f-a3e3-6870ba38baf3" //5189a7b7-59d7-4b8f-a3e3-6870ba38baf3
+    @Published var number: String = "" //5189a7b7-59d7-4b8f-a3e3-6870ba38baf3
     
     init() {
-        getDetailPosts(number: "5189a7b7-59d7-4b8f-a3e3-6870ba38baf3")
+        getDetailPosts(number: "")
     }
 
     func checkClosestNumberToShowStar(ratingNum: Double) -> [Int] {
