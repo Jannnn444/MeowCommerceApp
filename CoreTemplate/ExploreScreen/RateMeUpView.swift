@@ -11,7 +11,8 @@ struct RateMeUpView: View {
     
     
     @StateObject var detailViewModel = DetailViewModel()
-    var number: String = ""
+    var number: String = "5189a7b7-59d7-4b8f-a3e3-6870ba38baf3"
+//    var number: String = ""
     
     var body: some View {
         VStack {
@@ -33,6 +34,9 @@ struct RateMeUpView: View {
                     }
                 }
             }
+        }.onAppear() {
+          /*  detailViewModel.getDetailPostsOriginal(number: self.number)  */ // load the api post for original code
+            detailViewModel.getDetailPosts(number: self.number) // load the func with transform the star array
         }
     }
 }

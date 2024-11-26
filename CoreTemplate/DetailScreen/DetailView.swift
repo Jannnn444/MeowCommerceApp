@@ -94,29 +94,39 @@ struct DetailView: View {
                                 .foregroundStyle(Color.secondary)
                                 .frame(width: 50, height: 10, alignment: .leading)
                            
-                            // MARK: Star Rating
-                            HStack{
-                                if let ratios = detailViewModel.detailProductsPosts?.rating, !ratios.isEmpty {
-                                    ForEach(detailViewModel.detailProductsPosts?.rating ?? [] , id: \.self) { star in
-                                        if (star == 0) {
-                                            Image(systemName: "star.fill")
-                                                .foregroundColor(.yellow)
-                                        } else if star == 1 {
-                                            Image(systemName: "star.lefthalf.fill")
-                                                .foregroundColor(.yellow)
-                                        }
-                                    }
-                                } else {
-                                    // where we handle the case there're no ratings
-                                    Text("No rating yet, please leave your review!")
-                                               .foregroundStyle(.secondary)
-                                               .font(.footnote)
-                                               .frame(width: 250, height: 40, alignment: .leading)
-                                }
-                            }
-                            Spacer()
                             
+                                // MARK: Star Rating
+                                HStack{
+                                    if let ratios = detailViewModel.detailProductsPosts?.rating, !ratios.isEmpty {
+                                        ForEach(detailViewModel.detailProductsPosts?.rating ?? [] , id: \.self) { star in
+                                            if (star == 0) {
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.yellow)
+                                            } else if star == 1 {
+                                                Image(systemName: "star.lefthalf.fill")
+                                                    .foregroundColor(.yellow)
+                                            }
+                                        }
+                                    } else {
+                                        // where we handle the case there're no ratings
+                                        Text("No rating yet, please leave your review!")
+                                            .foregroundStyle(.secondary)
+                                            .font(.footnote)
+                                            .frame(width: 250, height: 20, alignment: .leading)
+                                    }
+                                }.padding(.top, 5)
+                         
+                            
+                             ZStack {
+                                 // MARK: Rate Button!
+                                 Button {
+                                     Text("Leave me rating!")
+                                 } label: {
+                                     RateByAButtonView()
+                                 }
+                             }
                         }
+                        
                         // MARK: Price
                         Text( "£ \(detailViewModel.detailProductsPosts?.price ?? 0 )")
                             .font(.custom("BrandonGrotesque-Medium", size: 15))
@@ -124,7 +134,7 @@ struct DetailView: View {
                             .frame(width: 50, height: 36, alignment: .leading)
                             .padding(.bottom, 50)
                             .padding(.trailing, 5)
-                    }
+                    } .padding()
                     
                     HStack {
                         // to put the spacer her make sure the unity wont change the title
