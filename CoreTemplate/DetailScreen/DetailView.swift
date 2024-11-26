@@ -121,6 +121,7 @@ struct DetailView: View {
                                  // MARK: Rate Button!
                                  Button {
                                      Text("Leave me rating!")
+                                     
                                  } label: {
                                      RateByAButtonView()
                                  }
