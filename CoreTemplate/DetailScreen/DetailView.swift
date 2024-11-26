@@ -77,25 +77,25 @@ struct DetailView: View {
                         VStack(alignment: .leading) {
                             
                             // MARK: Product Title
-                            Text(detailViewModel.detailProductsPosts?.title ?? "")
+                            Text(detailViewModel.detailProduct?.title ?? "")
                                 .font(.custom("BrandonGrotesque-Medium", size: 24))
                                 .lineLimit(nil)
                                 .frame(width: 250, height: 36, alignment: .leading)
                             
                             // MARK: Product Subtitle
-                            Text(detailViewModel.detailProductsPosts?.subtitle ?? "")
+                            Text(detailViewModel.detailProduct?.subtitle ?? "")
                                 .font(.custom("BrandonGrotesque-Medium", size: 20))
                                 .lineLimit(nil)
                                 .frame(width: 250, height: 36, alignment: .leading)
                             
                             // MARK: Weight
-                            Text("\(detailViewModel.detailProductsPosts?.weight ?? 100)g")
+                            Text("\(detailViewModel.detailProduct?.weight ?? 100)g")
                                 .font(.custom("BrandonGrotesque-Medium", size: 15))
                                 .foregroundStyle(Color.secondary)
                                 .frame(width: 50, height: 10, alignment: .leading)
                            
                             HStack{
-                                ForEach(detailViewModel.detailProductsPosts?.rating ?? [], id: \.self) { star in
+                                ForEach(detailViewModel.detailProductsPosts?.rating ?? [] , id: \.self) { star in
                                     if (star == 0) {
                                         Image(systemName: "star.fill")
                                             .foregroundColor(.yellow)
@@ -254,7 +254,8 @@ struct DetailView: View {
                 }
             }
         }.onAppear() {
-            detailViewModel.getDetailPosts(number: self.number) //reload the api post
+            detailViewModel.getDetailPostsOriginal(number: self.number)   // load the api post for original code
+            detailViewModel.getDetailPosts(number: self.number) // load the func with transform the star array
         }
     }
 }

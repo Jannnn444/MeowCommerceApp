@@ -9,11 +9,12 @@ import Foundation
 
 class DetailViewModel: ObservableObject, Identifiable {
     @Published var detailProductsPosts: ProductRender?
+    @Published var detailProduct: DetailPost?
     @Published var errorMessages: String? = nil
-    @Published var number: String = ""
+    @Published var number: String = "5189a7b7-59d7-4b8f-a3e3-6870ba38baf3" //5189a7b7-59d7-4b8f-a3e3-6870ba38baf3
     
     init() {
-        getDetailPosts(number: "")
+        getDetailPosts(number: "5189a7b7-59d7-4b8f-a3e3-6870ba38baf3")
     }
 
     func checkClosestNumberToShowStar(ratingNum: Double) -> [Int] {
@@ -103,6 +104,43 @@ class DetailViewModel: ObservableObject, Identifiable {
         }
     }
     
+    
+    func getDetailPostsOriginal(number: String = "") {
+        print("DEBUG: getDetailPosts called with number: \(number)")
+        let url = "/api/product/\(number)"
+        print("DEBUG: Fetching from URL: \(url)")
+        
+        NetworkManager.shared.getRequest(url: url) { (result: Result<DetailResponse, Error>) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let posts):
+                    self.detailProduct = posts.result
+                    print("DEBUG: Success. Received posts: \(posts)")
+                case .failure(let error):
+                    self.errorMessages = error.localizedDescription
+                    print("DEBUG: Error occurred: \(self.errorMessages ?? "Unknown error")")
+                    
+                    // Attempt to print raw data if available
+                    if let error = error as? DecodingError {
+                        switch error {
+                        case .dataCorrupted(let context):
+                            print("DEBUG: Data corrupted: \(context.debugDescription)")
+                        case .keyNotFound(let key, let context):
+                            print("DEBUG: Key '\(key)' not found: \(context.debugDescription)")
+                        case .typeMismatch(let type, let context):
+                            print("DEBUG: Type '\(type)' mismatch: \(context.debugDescription)")
+                        case .valueNotFound(let value, let context):
+                            print("DEBUG: Value '\(value)' not found: \(context.debugDescription)")
+                        @unknown default:
+                            print("DEBUG: Unknown decoding error")
+                        }
+                    } else {
+                        print("DEBUG: General error: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
     
 }
 
