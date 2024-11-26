@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SheetStarView: View {
+    @State var examplecountRating = 0.0
     @Binding var rating: Double
     var maximumRating = 5
     var onColor = Color.yellow
@@ -44,6 +45,3 @@ struct SheetStarView: View {
 }
 
 
-#Preview {
-    SheetStarView()
-}
