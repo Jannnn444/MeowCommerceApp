@@ -201,7 +201,7 @@ struct DetailView: View {
                 // MARK: DetailText Intro
                 
                 DisclosureGroup(isExpanded: $isExpandedforDetail) {
-                    Text(detailViewModel.detailProductsPosts?.subtitle ?? "")
+                    Text(detailViewModel.detailProduct?.subtitle ?? "")
                         .font(.custom("BrandonGrotesque-Medium", size: 12))
                         .lineLimit(nil)
                     
@@ -221,7 +221,7 @@ struct DetailView: View {
                 
                 // MARK: Composition Intro
                 DisclosureGroup(isExpanded: $isExpandedforComposition) {
-                    Text("This is our Top \(detailViewModel.detailProductsPosts?.price ?? 1) sellers! Totally \(detailViewModel.detailProductsPosts?.weight ?? 1)g. What a good deal! ")
+                    Text("This is our Top \(detailViewModel.detailProduct?.price ?? 1) sellers! Totally \(detailViewModel.detailProduct?.weight ?? 1)g. What a good deal! ")
                         .font(.custom("BrandonGrotesque-Medium", size: 12))
                         .lineLimit(nil)
                         .frame(width: 260, height: 30, alignment: .leading)
