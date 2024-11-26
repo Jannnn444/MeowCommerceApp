@@ -12,6 +12,8 @@ struct DetailView: View {
     
     // This view is the detail sheet of product when press button
     
+    @State var  currentRating  = 0.0
+    @State var isShowingSheet: Bool = false
     @State var count = 0
     @State var amountCounting = 0.00
     @State private var isExpandedforDetail: Bool = false
@@ -124,9 +126,12 @@ struct DetailView: View {
                                  // MARK: RATE ME BUTTON
                                  Button {
                                     print("Leave me new rating!")
-                                     
+                                     isShowingSheet.toggle()
                                  } label: {
                                      RateByAButtonView()
+                                 }
+                                 .sheet(isPresented: $isShowingSheet) {
+                                     SheetStarView(rating: $currentRating)
                                  }
                              }.padding(.top, 5)
                         }
