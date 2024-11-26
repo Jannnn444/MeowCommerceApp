@@ -47,25 +47,22 @@ struct DetailView: View {
         VStack {
             
             ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack() {
                     
+// MARK: - HEART BUTTOH
                     HStack() {
-                        
-                        VStack(alignment: .leading) {
-                            // MARK: Heart button
-                            Button {
-                                // Action here
-                                print("Heart button pressed")
-                            } label: {
-                                Image(systemName: "heart.fill")
-                                        .resizable()
-                                        .frame(width: 24, height: 24)
-                                }
-                                .zIndex(1) // Ensure the button is on top
-                                .padding(.leading, 250) // Adjust padding instead of offset
+                        Spacer()
+                        Button {
+                            print("Heart button pressed")
+                        } label: {
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .frame(width: 24, height: 24)
                         }
-                        
-                    }.padding()
+                    }
+                    .padding()
+                    
+  // MARK: - ABOVE PART
                     
                     HStack {
                         Image("product1")
@@ -73,14 +70,20 @@ struct DetailView: View {
                     }
                     
                     HStack {
-                        
                         VStack(alignment: .leading) {
                             
-                            // MARK: Product Title
-                            Text(detailViewModel.detailProduct?.title ?? "")
-                                .font(.custom("BrandonGrotesque-Medium", size: 24))
-                                .lineLimit(nil)
-                                .frame(width: 250, height: 40, alignment: .leading)
+                            HStack {
+                                // MARK: Product Title
+                                Text(detailViewModel.detailProduct?.title ?? "")
+                                    .font(.custom("BrandonGrotesque-Medium", size: 24))
+                                    .lineLimit(nil)
+                                    .frame(width: 250, height: 40, alignment: .leading)
+                                // MARK: Price
+                                Text( "£ \(detailViewModel.detailProductsPosts?.price ?? 0 )")
+                                    .font(.custom("BrandonGrotesque-Medium", size: 15))
+                                    .bold()
+                                    .frame(width: 50, height: 20, alignment: .leading)
+                            }
                             
                             // MARK: Product Subtitle
                             Text(detailViewModel.detailProduct?.subtitle ?? "")
@@ -95,8 +98,8 @@ struct DetailView: View {
                                 .frame(width: 50, height: 10, alignment: .leading)
                            
                             
-                                // MARK: Star Rating
-                                HStack{
+                            // MARK: Star Rating
+                            HStack{
                                     if let ratios = detailViewModel.detailProductsPosts?.rating, !ratios.isEmpty {
                                         ForEach(detailViewModel.detailProductsPosts?.rating ?? [] , id: \.self) { star in
                                             if (star == 0) {
@@ -117,28 +120,20 @@ struct DetailView: View {
                                 }.padding(.top, 5)
                          
                             
-                             ZStack {
-                                 // MARK: Rate Button!
+                                 ZStack {
+                                 // MARK: RATE ME BUTTON
                                  Button {
                                     print("Leave me new rating!")
                                      
                                  } label: {
                                      RateByAButtonView()
                                  }
-                             }
+                             }.padding(.top, 5)
                         }
-                        
-                        // MARK: Price
-                        Text( "£ \(detailViewModel.detailProductsPosts?.price ?? 0 )")
-                            .font(.custom("BrandonGrotesque-Medium", size: 15))
-                            .bold()
-                            .frame(width: 50, height: 36, alignment: .leading)
-                            .padding(.bottom, 50)
-                            .padding(.trailing, 5)
-                    } .padding()
+                    }
                     
+// MARK: - BELOW PART
                     HStack {
-                        // to put the spacer her make sure the unity wont change the title
                         // MARK: Minus Button
                         Button(action: {
                             if count > 0 {
@@ -167,16 +162,14 @@ struct DetailView: View {
                             .frame(width: 100)
                             .multilineTextAlignment(.center)
                             .padding(.leading, 100)
+                            .foregroundColor(.secondary)
                             .background(Color.clear)
                             .border(Color.clear)
                             .disabled(true)
-                     
-                    }
-                    .padding(.bottom, 5)
-                    
+                    }.padding(.top, 5)
                 }
+                
                 HStack {
-                    
                     Text("Repeated Order")
                         .font(.custom("BrandonGrotesque-Medium", size: 16))
                         .foregroundStyle(.black)
