@@ -8,49 +8,40 @@
 import Foundation  
 
 class DetailViewModel: ObservableObject, Identifiable {
-    @Published var detailProductsPosts: DetailPost?
-    @Published var productRenderList: [ProductRender] = []
+    @Published var detailProductsPosts: ProductRender?
     @Published var errorMessages: String? = nil
-    @Published var number: String = "067af8ae-f233-4112-a05f-d8ef96061d98" {
-        didSet {
-            print("@Debug: Re-fetching posts with number = \(number)")
-            getDetailPosts()  // Re-fetch data when `number` changes
-        }
-    }
-    
-    @Published var pageName: String = ""
-    @Published var rateArray: [Int] = [] // Array for star representation
+    @Published var number: String = ""
     
     init() {
-        getDetailPosts()
-        print("DEBUG: Init called. TrendingOceanPosts: \(detailProductsPosts), ErrorMessages: \(String(describing: errorMessages))")
+        getDetailPosts(number: "")
     }
-    
-    func getRateArray(number: String) {
-        print("DEBUG: getRateArray called with number : \(number)")
-       
-        if let product = detailProductsPosts {
-            if let rating = product.rating {
-                self.rateArray = convertRatingToStars(rating: rating)
-                print("DEBUG: Generated rateArray: \(self.rateArray)")
-            } else {
-                print("DEBUG: Rating is nil, defaulting rateArray to empty.")
-                self.rateArray = []
+
+    func checkClosestNumberToShowStar(ratingNum: Double) -> [Int] {
+        let starsTierArray = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]
+        var cloestTier: Double = 0.0
+        var smallestDifference: Double = 6.0
+        var starArray: [Int] = []
+        
+        for item in starsTierArray {
+            let diff = abs(item - ratingNum)
+            
+            if diff < smallestDifference {
+                smallestDifference = diff
+                cloestTier = item
             }
-        } else {
-            print("DEBUG: detailProductsPosts is nil, cannot generate rateArray.")
         }
+        let intergerPart = Int(floor(cloestTier))
+        let fractionPart = cloestTier - Double(intergerPart)
+        
+        starArray = Array(repeating: 0, count: intergerPart)
+        
+        if fractionPart > 0 {
+            starArray.append(1)
+        }
+        print("Star array: \(starArray)")
+        return starArray
     }
     
-    func convertRatingToStars(rating: Double) -> [Int] {
-        let fullStars = Int(rating)
-        let hasHalfStar = rating.truncatingRemainder(dividingBy: 1) > 0
-        var starsArray = Array(repeating: 0, count: fullStars)
-        if hasHalfStar {
-            starsArray.append(1)
-        }
-        return starsArray
-    }
     
     func getDetailPosts(number: String = "") {
         print("DEBUG: getDetailPosts called with number: \(number)")
@@ -60,9 +51,31 @@ class DetailViewModel: ObservableObject, Identifiable {
         NetworkManager.shared.getRequest(url: url) { (result: Result<DetailResponse, Error>) in
             DispatchQueue.main.async {
                 switch result {
+
                 case .success(let posts):
-                    self.detailProductsPosts = posts.result
-                    print("DEBUG: Success. Received posts: \(posts)")
+                  
+                    print("DEBUG: Success. Received posts: \(posts.result)")
+                    
+                    guard let detailPostRating = posts.result.rating else { return }
+                    
+                    let ratings = self.checkClosestNumberToShowStar(ratingNum: detailPostRating)
+                    
+                    // Safely create and append a product to the list 
+                   
+                    let postRes = posts.result
+                        
+                       let product = ProductRender(
+                            id: postRes.id,
+                            title: postRes.title,
+                            subtitle: postRes.subtitle,
+                            image_url: postRes.image_url,
+                            price: postRes.price,
+                            rating: ratings,
+                            weight: postRes.weight,
+                            detail: postRes.detail
+                        )
+                    self.detailProductsPosts = product
+                    print("DEBUG RATING - state: \(self.detailProductsPosts)")
                 case .failure(let error):
                     self.errorMessages = error.localizedDescription
                     print("DEBUG: Error occurred: \(self.errorMessages ?? "Unknown error")")
@@ -89,6 +102,8 @@ class DetailViewModel: ObservableObject, Identifiable {
             
         }
     }
+    
+    
 }
 
 

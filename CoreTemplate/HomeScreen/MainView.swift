@@ -31,7 +31,7 @@ struct MainView: View {
                         Text("Acocunt")
                     }
                 }
-                .padding(.bottom, 10) //60
+                .padding(.bottom, 10)  //60
             }
             VStack {
                 
@@ -44,13 +44,12 @@ struct MainView: View {
                         .font(.title)
                         .background(Color.white.shadow(radius: 2)) // Optional: Background and shadow for better visibility
                  
-                    // here for displayy how to be
                 }
-              
             }
         }
     }
 }
+
 
 #Preview {
     MainView()

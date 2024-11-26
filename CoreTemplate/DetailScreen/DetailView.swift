@@ -47,20 +47,7 @@ struct DetailView: View {
         VStack {
             
             ScrollView {
-                ZStack{
-                    Text(detailViewModel.pageName)
-                        .font(.title)
-                        .foregroundStyle(Color.black)
-                }
-                .padding(.bottom, -40)
-                
                 VStack(alignment: .leading, spacing: 10) {
-                    // Refetch Test
-//                    Button {
-//                        detailViewModel.number = 2
-//                    } label: {
-//                        Text("Refetch")
-//                    }
                     
                     HStack() {
                         
@@ -106,7 +93,18 @@ struct DetailView: View {
                                 .font(.custom("BrandonGrotesque-Medium", size: 15))
                                 .foregroundStyle(Color.secondary)
                                 .frame(width: 50, height: 10, alignment: .leading)
-                            
+                           
+                            HStack{
+                                ForEach(detailViewModel.detailProductsPosts?.rating ?? [], id: \.self) { star in
+                                    if (star == 0) {
+                                        Image(systemName: "star.fill")
+                                            .foregroundColor(.yellow)
+                                    } else if star == 1 {
+                                        Image(systemName: "star.lefthalf.fill")
+                                            .foregroundColor(.yellow)
+                                    }
+                                }
+                            }
                             Spacer()
                             
                         }
@@ -119,24 +117,7 @@ struct DetailView: View {
                             .padding(.trailing, 5)
                     }
                     
-                    HStack(spacing: 5) {
-                        
-                        // MARK: STAR RATE
-                        // Unwrap rating before using
-                        if let myRating = detailViewModel.detailProductsPosts?.rating  {
-                            Text("\(myRating)")
-                            
-                            ForEach(0..<Int(round(myRating)), id: \.self) { _ in
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.carrot)
-                            }
-                        } else {
-                            Text("No Rating")
-                                .foregroundColor(.gray)
-                        }
-                    }
                     HStack {
-                        
                         // to put the spacer her make sure the unity wont change the title
                         // MARK: Minus Button
                         Button(action: {
@@ -193,6 +174,7 @@ struct DetailView: View {
                                 .frame(minWidth: 100   , maxHeight: 45)
                                 .foregroundStyle(.carrot)
                         }
+                        
                         Button {
                             amountCounting = Double(0.0)
                         } label: {
@@ -276,7 +258,7 @@ struct DetailView: View {
         }
     }
 }
-//
+
 #Preview {
     DetailView(number: .constant("0"))
 }
