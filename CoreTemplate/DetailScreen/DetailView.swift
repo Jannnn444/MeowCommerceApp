@@ -120,7 +120,7 @@ struct DetailView: View {
                              ZStack {
                                  // MARK: Rate Button!
                                  Button {
-                                     Text("Leave me rating!")
+                                    print("Leave me new rating!")
                                      
                                  } label: {
                                      RateByAButtonView()
