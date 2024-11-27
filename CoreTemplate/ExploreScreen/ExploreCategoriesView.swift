@@ -38,6 +38,8 @@ struct ExploreCategoriesView: View {
                     }
                 }
             } .padding(sideSpace)
+            
+            squareProductList()
         }
         .padding()
     }
@@ -51,22 +53,38 @@ struct ExploreCategoriesView: View {
 struct CapsuleCategoryButton: View {
     @State var categoryTitle: [String] = ["All", "Dog", "Cat", "Bird"]
     var body: some View {
-        HStack{
-            ForEach(categoryTitle, id: \.self) { categoryItem in
-                Button(action: {
-                    print("Category list button tapped!")
-                }) {
-                    Text(categoryItem)
-                        .font(.custom("BrandonGrotesque-Medium", size: 15))
-                        .foregroundStyle(.black)
-                        .padding()
-                        .frame(width: 80, height: 50)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(Color.darkkGray, lineWidth: 2)
-                        )
+        
+        VStack{
+            HStack{
+                ForEach(categoryTitle, id: \.self) { categoryItem in
+                    Button(action: {
+                        print("Category list button tapped!")
+                    }) {
+                        Text(categoryItem)
+                            .font(.custom("BrandonGrotesque-Medium", size: 15))
+                            .foregroundStyle(.black)
+                            .padding()
+                            .frame(width: 80, height: 50)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 25)
+                                    .stroke(Color.darkkGray, lineWidth: 2)
+                            )
+                    }
                 }
-            }
-        }.padding()
+            }.padding()
+           
+        }
+    }
+}
+
+struct squareProductList: View {
+    var body: some View {
+        
+            Rectangle()
+            .frame(width: 80, height: 50)
+            .cornerRadius(20)
+            Rectangle()
+            .frame(width: 80, height: 50)
+            .cornerRadius(20)
     }
 }
