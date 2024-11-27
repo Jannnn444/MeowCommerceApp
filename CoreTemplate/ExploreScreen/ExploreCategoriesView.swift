@@ -16,7 +16,7 @@ struct ExploreCategoriesView: View {
         VStack {
             ScrollView {
                 //MARK: App Wrapper
-                VStack {
+               
                     Text("Explore Categories")
                         .font(.custom("BrandonGrotesque-Medium", size: 24))
                     
@@ -36,12 +36,10 @@ struct ExploreCategoriesView: View {
                             CapsuleCategoryButton()
                         }
                     }
-                }
-            } .padding(sideSpace)
-            
-            squareProductList()
+                squareProductList()
+            }
         }
-        .padding()
+        .padding(sideSpace)
     }
 }
 
@@ -78,13 +76,24 @@ struct CapsuleCategoryButton: View {
 }
 
 struct squareProductList: View {
+    
+    private let item = (1...10).map {"Item\($0)"}
+    private let columns: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     var body: some View {
-        
-            Rectangle()
-            .frame(width: 80, height: 50)
-            .cornerRadius(20)
-            Rectangle()
-            .frame(width: 80, height: 50)
-            .cornerRadius(20)
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(item, id: \.self) { item in
+                    Text(item)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 50)
+                        .background(.blue,
+                                    in: RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        )
+                }
+            }
+        }
     }
 }
