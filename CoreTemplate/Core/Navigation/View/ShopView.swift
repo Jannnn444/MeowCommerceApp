@@ -41,20 +41,16 @@ struct ShopView: View {
                             
                             .foregroundStyle(Color.DarkkGray)
                             // .font(.system(size: 14, weight: .medium))
-
                         }
-                        
                     }
                     //MARK: Banner
                     BannerView()
                         .padding(.top, 20)
                         .padding(.bottom, 20)
-                    
                 }
                .padding(.trailing, sideSpace)
                 
-                //MARK: List -- "Trending Items"
-                
+                //MARK: - "Trending Items"
                 SectionTitle(title: "Trending now")
                     .font(.custom("BrandonGrotesque-Medium", size: 24))
                     .padding(.trailing, sideSpace)
