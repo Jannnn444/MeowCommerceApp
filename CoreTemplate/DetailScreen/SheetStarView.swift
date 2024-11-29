@@ -13,6 +13,9 @@ struct SheetStarView: View {
     var maximumRating = 5
     var onColor = Color.yellow
     var offColor = Color.gray
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack{
             
@@ -30,7 +33,7 @@ struct SheetStarView: View {
                             }
                         }
                 }
-            }
+            }.padding()
             .gesture(
                 DragGesture()
                     .onChanged { value in
@@ -46,6 +49,7 @@ struct SheetStarView: View {
             
             Button {
                 // Action
+                presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Send!")
                     .padding()

@@ -87,6 +87,7 @@ struct squareProductList: View {
             LazyVGrid(columns: columns) {
                 ForEach(item, id: \.self) { item in
                     Text(item)
+                        .font(.custom("BrandonGrotesque-Medium", size: 20))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 50)
                         .background(.blue,
