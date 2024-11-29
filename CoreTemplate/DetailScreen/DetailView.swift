@@ -14,6 +14,7 @@ struct DetailView: View {
     
     @State var  currentRating  = 0.0
     @State var isShowingSheet: Bool = false
+    @State private var showNotification = false
     @State var count = 0
     @State var amountCounting = 0.00
     @State private var isExpandedforDetail: Bool = false
@@ -99,7 +100,6 @@ struct DetailView: View {
                                 .foregroundStyle(Color.secondary)
                                 .frame(width: 50, height: 10, alignment: .leading)
                            
-                            
                             // MARK: Star Rating
                             HStack{
                                     if let ratios = detailViewModel.detailProductsPosts?.rating, !ratios.isEmpty {
@@ -130,14 +130,37 @@ struct DetailView: View {
                                  } label: {
                                      RateByAButtonView()
                                  }
-                                 .sheet(isPresented: $isShowingSheet) {
+                                 .sheet(isPresented: $isShowingSheet, onDismiss: {
+                                     showNotification = true
+                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                         showNotification = false
+                                     }
+                                 }) {
                                      SheetStarView(rating: $currentRating)
                                  }
-                             }.padding(.top, 5)
+                                     // Notification overlay
+                                     if showNotification {
+                                         VStack {
+                                             Spacer()
+                                             Text("Your review has been received!")
+                                                 .padding()
+                                                 .background(Color.secondary)
+                                                 .foregroundColor(.white)
+                                                 .cornerRadius(10)
+                                                 .shadow(radius: 10)
+                                                 .transition(.opacity)
+                                                 .animation(.easeInOut, value: showNotification)
+                                             Spacer().frame(height: 30)
+                                         }
+                                         .zIndex(1) // Ensure it appears above other views
+                                     }
+                                     
+                                     
+                                 }.padding(.top, 5)
                         }
                     }
                     
-// MARK: - BELOW PART
+                    // MARK: - BELOW PART
                     HStack {
                         // MARK: Minus Button
                         Button(action: {
