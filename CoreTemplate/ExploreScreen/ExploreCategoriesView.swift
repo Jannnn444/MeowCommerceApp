@@ -90,7 +90,7 @@ struct squareProductList: View {
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 50)
                         .background(.blue,
-                                    in: RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        in: RoundedRectangle(cornerRadius: 15, style: .continuous)
                         )
                 }
             }
