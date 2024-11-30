@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct SheetStarView: View {
-    @State var examplecountRating = 0.0
+
     @Binding var rating: Double
+    @Binding var number: String
+    @Binding var needsRefresh: Bool // Notify parents to refresh
     @ObservedObject var detailViewModel = DetailViewModel()
+    @Environment(\.dismiss) var dismiss // For dismissing the sheet
+    
     var maximumRating = 5
     var onColor = Color.yellow
     var offColor = Color.gray
-    @Binding var number: String
-    
-    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack{
@@ -52,7 +53,8 @@ struct SheetStarView: View {
             Button {
                 // MARK: - Product Post Action
                 detailViewModel.postRating(number: self.number, payload: ProductRatingPayload.init(rating: rating))
-                presentationMode.wrappedValue.dismiss()
+                needsRefresh = true
+                dismiss()
             } label: {
                 Text("Send!")
                     .padding()

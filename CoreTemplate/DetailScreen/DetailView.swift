@@ -19,6 +19,7 @@ struct DetailView: View {
     @State var amountCounting = 0.00
     @State private var isExpandedforDetail: Bool = false
     @State private var isExpandedforComposition: Bool = false
+    @State private var needsRefresh = false // To track if refresh is required
     @Binding var number: String
     @ObservedObject var detailViewModel = DetailViewModel()  //here subscribed the DetailViewModels()
     
@@ -119,21 +120,24 @@ struct DetailView: View {
                                             .font(.footnote)
                                             .frame(width: 250, height: 20, alignment: .leading)
                                     }
-                                }.padding(.top, 5)
-                         
+                            }.padding(.top, 5)
                             
-                                 ZStack {
-                                 // MARK: RATE ME BUTTON
-                                 Button {
+                            
+                            ZStack {
+                                // MARK: RATE ME BUTTON
+                                Button {
                                     print("Leave me new rating!")
-                                     isShowingSheet.toggle()
-                                 } label: {
-                                     RateByAButtonView()
-                                 }
-                                 .sheet(isPresented: $isShowingSheet) {
-                                     SheetStarView(rating: $currentRating, number: self.$number)
-                                 }
-                                 }.padding(.top, 5)
+                                    isShowingSheet.toggle()
+                                } label: {
+                                    RateByAButtonView()
+                                }
+                                .sheet(isPresented: $isShowingSheet) {
+                                    SheetStarView(
+                                        rating: $currentRating,
+                                        number: self.$number,
+                                        needsRefresh: $needsRefresh)
+                                }
+                            }.padding(.top, 5)
                         }
                     }
                     
@@ -274,6 +278,13 @@ struct DetailView: View {
         }.onAppear() {
             detailViewModel.getDetailPostsOriginal(number: self.number)   // load the api post for original code
             detailViewModel.getDetailPosts(number: self.number) // load the func with transform the star array
+        }
+        .onChange(of: needsRefresh) { refresh in
+            if refresh {
+                detailViewModel.getDetailPostsOriginal(number: self.number)
+                detailViewModel.getDetailPosts(number: self.number)
+                needsRefresh = false // Reset after refreshing
+            }
         }
     }
 }
