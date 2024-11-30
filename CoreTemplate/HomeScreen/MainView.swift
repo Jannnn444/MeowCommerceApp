@@ -43,6 +43,7 @@ struct MainView: View {
                         .colorMultiply(.secondary)
                         .font(.title)
                         .background(Color.white.shadow(radius: 2)) // Optional: Background and shadow for better visibility
+                        .cornerRadius(20)
                  
                 }
             }

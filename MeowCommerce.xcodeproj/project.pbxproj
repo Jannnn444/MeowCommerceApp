@@ -215,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				1E4443072C3188C6005C8DF5 /* NavBarView.swift */,
-				1E44430F2C32A3FA005C8DF5 /* ShopView.swift */,
 				1E4443132C32A40C005C8DF5 /* TheFavoriteView.swift */,
 				1E4443152C32A427005C8DF5 /* TheAccountView.swift */,
 			);
@@ -245,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				8FCCBA072BDFAE1E003BC1CD /* MainView.swift */,
+				1E44430F2C32A3FA005C8DF5 /* ShopView.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
