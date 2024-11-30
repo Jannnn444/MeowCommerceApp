@@ -22,8 +22,10 @@ struct NavBarView: View {
             } label: {
                 VStack {
                     Image(systemName: "storefront")
+                        .frame(width: 50, height: 40)
                     Text("Shop")
                         .font(.custom("BrandonGrotesque-Medium", size: 10))
+                        .padding(.top, -5)
                 }
             }
             .padding()
@@ -34,8 +36,10 @@ struct NavBarView: View {
             } label: {
                 VStack {
                     Image(systemName: "doc.text.magnifyingglass")
+                        .frame(width: 50, height: 40)
                     Text("Explore")
                         .font(.custom("BrandonGrotesque-Medium", size: 10))
+                        .padding(.top, -5)
                 }
             }
             .padding()
@@ -47,14 +51,15 @@ struct NavBarView: View {
             } label: {
                 VStack {
                     Image(systemName: "heart")
+                        .frame(width: 50, height: 40)
                     Text("Favourite")
                         .font(.custom("BrandonGrotesque-Medium", size: 10))
+                        .padding(.top, -5)
                 }
             }
             .padding()
             
-            // MARK: Button - Cart
-            
+// MARK: Button - Cart
 //            Button {
 //                navigationState = .Cart
 //            } label: {
@@ -62,18 +67,18 @@ struct NavBarView: View {
 //                    Image(systemName: "cart")
 //                    Text("My Cart")
 //                        .font(.custom("BrandonGrotesque-Medium", size: 10))
-//                }
-//            }
+//                } }
             
             // MARK: Button - Account
-            
             Button {
                 navigationState = .Account
             } label: {
                 VStack {
                     Image(systemName: "person")
+                        .frame(width: 50, height: 40)
                     Text("Account")
                         .font(.custom("BrandonGrotesque-Medium", size: 10))
+                        .padding(.top, -5)
                 }
             }
             .padding()
