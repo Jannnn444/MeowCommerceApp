@@ -35,8 +35,8 @@ struct RateMeUpView: View {
                 }
             }
         }.onAppear() {
-          /*  detailViewModel.getDetailPostsOriginal(number: self.number)  */ // load the api post for original code
-            detailViewModel.getDetailPosts(number: self.number) // load the func with transform the star array
+            detailViewModel.getDetailPosts(number: self.number) // load with transform the star array
+//          detailViewModel.getDetailPostsOriginal(number: self.number) // load the api post for original code
         }
     }
 }

@@ -130,39 +130,15 @@ struct DetailView: View {
                                  } label: {
                                      RateByAButtonView()
                                  }
-                                 .sheet(isPresented: $isShowingSheet, onDismiss: {
-                                     showNotification = true
-                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                         showNotification = false
-                                     }
-                                 }) {
-                                     SheetStarView(rating: $currentRating)
+                                 .sheet(isPresented: $isShowingSheet) {
+                                     SheetStarView(rating: $currentRating, number: self.$number)
                                  }
-                                     // Notification overlay
-                                     if showNotification {
-                                         VStack {
-                                             Spacer()
-                                             Text("Your review has been received!")
-                                                 .padding()
-                                                 .background(Color.secondary)
-                                                 .foregroundColor(.white)
-                                                 .cornerRadius(10)
-                                                 .shadow(radius: 10)
-                                                 .transition(.opacity)
-                                                 .animation(.easeInOut, value: showNotification)
-                                             Spacer().frame(height: 30)
-                                         }
-                                         .zIndex(1) // Ensure it appears above other views
-                                     }
-                                     
-                                     
                                  }.padding(.top, 5)
                         }
                     }
                     
                     // MARK: - BELOW PART
                     HStack {
-                        // MARK: Minus Button
                         Button(action: {
                             if count > 0 {
                                 count -= 1
@@ -178,7 +154,6 @@ struct DetailView: View {
                             .multilineTextAlignment(.center)
                             .disabled(true)
                         
-                        // MARK: Plus Button
                         Button(action: {
                             count += 1
                         } , label: {
@@ -196,6 +171,8 @@ struct DetailView: View {
                             .disabled(true)
                     }.padding(.top, 5)
                 }
+                
+                // MARK: - Columns Part
                 
                 HStack {
                     Text("Repeated Order")

@@ -7,6 +7,10 @@
 
 import Foundation  
 
+struct ProductRatingPayload: Encodable {
+    let rating: Double
+}
+
 class DetailViewModel: ObservableObject, Identifiable {
     @Published var detailProductsPosts: ProductRender?
     @Published var detailProduct: DetailPost?
@@ -14,9 +18,9 @@ class DetailViewModel: ObservableObject, Identifiable {
     @Published var number: String = "" //5189a7b7-59d7-4b8f-a3e3-6870ba38baf3
     
     init() {
-        getDetailPosts(number: "")
+        getDetailPosts(number: number)
     }
-
+    
     func checkClosestNumberToShowStar(ratingNum: Double) -> [Int] {
         let starsTierArray = [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]
         var cloestTier: Double = 0.0
@@ -43,6 +47,23 @@ class DetailViewModel: ObservableObject, Identifiable {
         return starArray
     }
     
+    func postRating(number: String, payload: ProductRatingPayload ) {
+        print("DEBUG: Post DetailPosts called with number: \(number)")
+        
+        let url = "/api/product/\(number)/rate"
+        print("DEBUG: Process Posting to URL: \(url)")
+        
+        NetworkManager.shared.postRequest(url: url, payload: payload) { (result: Result<GeneralResponse, Error>) in
+                  DispatchQueue.main.async {
+                      switch result {
+                      case .success(let posts):
+                          print("DEBUG: Successfully posted detail: \(posts)")
+                      case .failure(let error):
+                          self.handleError(error)
+                      }
+                  }
+              }
+          }
     
     func getDetailPosts(number: String = "") {
         print("DEBUG: getDetailPosts called with number: \(number)")
@@ -78,26 +99,8 @@ class DetailViewModel: ObservableObject, Identifiable {
                     self.detailProductsPosts = product
                     print("DEBUG RATING - state: \(self.detailProductsPosts)")
                 case .failure(let error):
-                    self.errorMessages = error.localizedDescription
                     print("DEBUG: Error occurred: \(self.errorMessages ?? "Unknown error")")
-                    
-                    // Attempt to print raw data if available
-                    if let error = error as? DecodingError {
-                        switch error {
-                        case .dataCorrupted(let context):
-                            print("DEBUG: Data corrupted: \(context.debugDescription)")
-                        case .keyNotFound(let key, let context):
-                            print("DEBUG: Key '\(key)' not found: \(context.debugDescription)")
-                        case .typeMismatch(let type, let context):
-                            print("DEBUG: Type '\(type)' mismatch: \(context.debugDescription)")
-                        case .valueNotFound(let value, let context):
-                            print("DEBUG: Value '\(value)' not found: \(context.debugDescription)")
-                        @unknown default:
-                            print("DEBUG: Unknown decoding error")
-                        }
-                    } else {
-                        print("DEBUG: General error: \(error.localizedDescription)")
-                    }
+                    self.handleError(error)
                 }
             }
             
@@ -117,30 +120,34 @@ class DetailViewModel: ObservableObject, Identifiable {
                     self.detailProduct = posts.result
                     print("DEBUG: Success. Received posts: \(posts)")
                 case .failure(let error):
-                    self.errorMessages = error.localizedDescription
                     print("DEBUG: Error occurred: \(self.errorMessages ?? "Unknown error")")
-                    
-                    // Attempt to print raw data if available
-                    if let error = error as? DecodingError {
-                        switch error {
-                        case .dataCorrupted(let context):
-                            print("DEBUG: Data corrupted: \(context.debugDescription)")
-                        case .keyNotFound(let key, let context):
-                            print("DEBUG: Key '\(key)' not found: \(context.debugDescription)")
-                        case .typeMismatch(let type, let context):
-                            print("DEBUG: Type '\(type)' mismatch: \(context.debugDescription)")
-                        case .valueNotFound(let value, let context):
-                            print("DEBUG: Value '\(value)' not found: \(context.debugDescription)")
-                        @unknown default:
-                            print("DEBUG: Unknown decoding error")
-                        }
-                    } else {
-                        print("DEBUG: General error: \(error.localizedDescription)")
-                    }
+                    self.handleError(error)
                 }
             }
         }
     }
+    
+    private func handleError(_ error: Error) {
+           self.errorMessages = error.localizedDescription
+           print("DEBUG: Error occurred: \(self.errorMessages ?? "Unknown error")")
+           
+           if let decodingError = error as? DecodingError {
+               switch decodingError {
+               case .dataCorrupted(let context):
+                   print("DEBUG: Data corrupted: \(context.debugDescription)")
+               case .keyNotFound(let key, let context):
+                   print("DEBUG: Key '\(key)' not found: \(context.debugDescription)")
+               case .typeMismatch(let type, let context):
+                   print("DEBUG: Type mismatch for type '\(type)': \(context.debugDescription)")
+               case .valueNotFound(let value, let context):
+                   print("DEBUG: Value '\(value)' not found: \(context.debugDescription)")
+               @unknown default:
+                   print("DEBUG: Unknown decoding error")
+               }
+           } else {
+               print("DEBUG: General error: \(error.localizedDescription)")
+           }
+       }
     
 }
 

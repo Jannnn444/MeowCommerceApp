@@ -71,29 +71,6 @@ struct ExploreView: View {
             .padding()
         }
         .onAppear {
-//             Fetch and format data on view appearance
-////            detailViewModel.getDetailPosts { products in
-////                guard let products = products else {
-////                    self.myDetailPostList = [] // Clear list if data is nil
-////                    return
-////                }
-////                
-////                // Map fetched products to `DetailProductRender` format
-////                self.myDetailPostList = products.map { product in
-////                    DetailProductRender(
-////                        id: product.id,
-////                        title: product.title,
-////                        subtitle: product.subtitle,
-////                        image_url: product.image_url,
-////                        price: product.price,
-////                        rating: Rating.checkStarsCloestFilter(num: Double(product.rating ?? 1.1)),
-////                        weight: product.weight,
-////                        detail: product.detail ?? ""
-////                    )
-////                }
-////            }
         }
-        
     }
-    
 }

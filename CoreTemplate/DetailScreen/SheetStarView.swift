@@ -10,9 +10,11 @@ import SwiftUI
 struct SheetStarView: View {
     @State var examplecountRating = 0.0
     @Binding var rating: Double
+    @ObservedObject var detailViewModel = DetailViewModel()
     var maximumRating = 5
     var onColor = Color.yellow
     var offColor = Color.gray
+    @Binding var number: String
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -48,7 +50,8 @@ struct SheetStarView: View {
             .font(.title)
             
             Button {
-                // Action
+                // MARK: - Product Post Action
+                detailViewModel.postRating(number: self.number, payload: ProductRatingPayload.init(rating: rating))
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Send!")

@@ -24,6 +24,11 @@ struct DetailResponse: Codable, Hashable {
     let result: DetailPost
 }
 
+struct GeneralResponse: Codable, Hashable {
+    let message: String
+    let statusCode: Int
+}
+
 
 //206.189.40.30
 

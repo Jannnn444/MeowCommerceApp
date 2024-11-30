@@ -81,8 +81,6 @@ class NetworkManager {
     func postRequest<T: Encodable, U: Decodable>(url: String, payload: T, completion: @escaping (Result<U, Error>) -> Void) {
         
         // T is dynamic type, product type, title: string and price: float(decimal)
-        
-        
         // guard against any unaccepted url strings and create URL object
         guard let url = URL(string: "http://\(apiDomain):\(PORT)\(url)") else {
             completion(.failure(NetworkError.urlError))
