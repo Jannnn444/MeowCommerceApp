@@ -45,8 +45,7 @@ struct NavBarView: View {
             .padding()
             
             // MARK: Button - Favourite
-            
-            Button {
+            /* Button {
                 navigationState = .Favourite
             } label: {
                 VStack {
@@ -58,16 +57,21 @@ struct NavBarView: View {
                 }
             }
             .padding()
+             */
             
-// MARK: Button - Cart
-//            Button {
-//                navigationState = .Cart
-//            } label: {
-//                VStack {
-//                    Image(systemName: "cart")
-//                    Text("My Cart")
-//                        .font(.custom("BrandonGrotesque-Medium", size: 10))
-//                } }
+            // MARK: Button - Cart
+            Button {
+                navigationState = .Cart
+            } label: {
+                VStack {
+                    Image(systemName: "cart")
+                        .frame(width: 50, height: 40)
+                    Text("My Cart")
+                        .font(.custom("BrandonGrotesque-Medium", size: 10))
+                        .padding(.top, -5)
+                }
+            }
+            .padding()
             
             // MARK: Button - Account
             Button {
