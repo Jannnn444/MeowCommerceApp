@@ -25,10 +25,11 @@ struct MainView: View {
                         ShopView()
                     case .Explore:
                         ExploreCategoriesView()
+                    case .Cart:
+                        CartView()
                     case .Account:
                         Text("Acocunt")
-                    case .Cart:
-                        Text("Add Cart list!")
+                    
                     }
                 }
                 .padding(.bottom, 10)  //60

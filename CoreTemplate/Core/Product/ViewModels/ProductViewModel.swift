@@ -11,6 +11,7 @@ class ProductViewModel: ObservableObject, Identifiable {
     
     @Published var productPosts: [ProductsPost] = []
     @Published var errorMessages: String? = nil
+    @Published var sideSpace: CGFloat = 25
     
     init(){
         getProductPosts()
