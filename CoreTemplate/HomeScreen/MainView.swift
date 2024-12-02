@@ -28,7 +28,7 @@ struct MainView: View {
                     case .Cart:
                         CartView()
                     case .Account:
-                        Text("Acocunt")
+                        Accountview()
                     
                     }
                 }
@@ -45,13 +45,13 @@ struct MainView: View {
                         .font(.title)
                         .background(Color.white.shadow(radius: 2)) // Optional: Background and shadow for better visibility
                         .cornerRadius(20)
+                        .offset(y: 30   )
                  
                 }
             }
         }
     }
 }
-
 
 #Preview {
     MainView()

@@ -86,6 +86,7 @@ struct NavBarView: View {
                 }
             }
             .padding()
+            .padding(.bottom, 10)
         }
 //        .padding(.horizontal)
     }
